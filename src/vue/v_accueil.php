@@ -14,7 +14,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><b><a href="#">Mon téléviseur ne s'allume plus</a></b></td>
+                        <td><b><a href="subject/">Mon téléviseur ne s'allume plus</a></b></td>
                         <td><a href="#">Téléviseur</a></td>
                     </tr>
                     <tr>
