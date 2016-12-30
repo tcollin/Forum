@@ -27,6 +27,24 @@ body {
     margin: 5%;
 }
 
+.user {
+    padding: 10px;
+    display: inline-block;
+}
+
+.userimg {
+    background-image: url(../img/default_user.png);
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    float: left;
+}
+
+.usertext {
+    font-weight: bold;
+}
+
 article,
 aside,
 details,
@@ -273,7 +291,7 @@ th {
         page-break-inside: avoid
     }
     thead {
-        display: table-header-group
+        display: table-header-group;
     }
     img,
     tr {
@@ -2839,7 +2857,7 @@ th {
     padding: 8px;
     line-height: 1.42857143;
     vertical-align: top;
-    border-top: 1px solid #ddd
+    border-top: 1px solid #000;
 }
 
 .table>thead>tr>th {
@@ -3991,22 +4009,22 @@ fieldset[disabled] .btn-info:hover {
 }
 
 .btn-warning {
-    color: #fff;
-    background-color: #f0ad4e;
-    border-color: #eea236
+    color: #0084c2;
+    background-color: #fff;
+    border-color: #0084c2
 }
 
 .btn-warning.focus,
 .btn-warning:focus {
     color: #fff;
-    background-color: #ec971f;
-    border-color: #985f0d
+    background-color: #0084c2;
+    border-color: #0084c2
 }
 
 .btn-warning:hover {
     color: #fff;
-    background-color: #ec971f;
-    border-color: #d58512
+    background-color: #0084c2;
+    border-color: #0084c2
 }
 
 .btn-warning.active,
@@ -5496,8 +5514,8 @@ fieldset[disabled] .navbar-default .btn-link:hover {
     color: #ccc
 }
 .navbar-inverse {
-    background-color: #222;
-    border-color: #080808
+    background-color: #0084c2;
+    border-color: #0020c2
 }
 .navbar-inverse .navbar-brand:focus,
 .navbar-inverse .navbar-brand:hover {

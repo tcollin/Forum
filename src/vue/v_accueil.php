@@ -30,6 +30,5 @@
         </div>
     </div>
     </div>
-    <!-- /container -->
 
     <?php include('v_footer.php'); ?>
