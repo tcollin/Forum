@@ -23,6 +23,18 @@
                                         <div class="usertext">Titre sujet
                                             <br />User
                                             <?php echo $i;?>
+                                                <!-- IF ($login=$loginAdmin)  { }-->
+                                                <a href="#" class="info">
+                                                    <div class="glyphicon glyphicon-ban-circle"></div><span>Bannir l'utilisateur</span></a>
+                                        </div>
+                                        <!-- IF ($login=$loginAdmin)  { }-->
+                                        <div class="bouton-admin">
+                                            <a href="#" class="info">
+                                                <div class="glyphicon glyphicon-ok-circle"></div><span>Modérer le message</span>
+                                            </a>
+                                            <a href="#" class="info">
+                                                <div class="glyphicon glyphicon-remove-circle"></div><span>Supprimer le message</span>
+                                            </a>
                                         </div>
                                     </div>
                                 </th>

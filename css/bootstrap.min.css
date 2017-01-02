@@ -27,6 +27,9 @@ body {
     margin: 5%;
 }
 
+
+/** CSS du THEAD de la v_subject **/
+
 .user {
     padding: 10px;
     display: inline-block;
@@ -46,10 +49,16 @@ body {
     font-weight: bold;
 }
 
+
+/** REALISATION DE LA SCROLLBAR SUR LE MAIN **/
+
 main {
     height: 700px;
     overflow: auto;
 }
+
+
+/** MODIFICATION DE LA SCROLLBAR (VISIBLE SUR CHROME) **/
 
 ::-webkit-scrollbar {
     width: 12px;
@@ -63,6 +72,59 @@ main {
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 67, 186, 0.9);
+}
+
+
+/** INFOBULLE DES OUTILS ADMINISTRATEURS **/
+
+* {
+    font-size: 11px;
+    /* On définit les propriétés de texte pour toutes les balises. */
+    font-family: Tahoma, Verdana, Arial, serif;
+}
+
+a.info {
+    position: relative;
+    color: black;
+    text-decoration: none;
+    /* On souligne le texte. */
+}
+
+a.info span {
+    display: none;
+    /* On masque l'infobulle. */
+}
+
+a.info:hover {
+    background: none;
+    /* Correction d'un bug d'Internet Explorer. */
+    z-index: 500;
+    /* On définit une valeur pour l'ordre d'affichage. */
+    cursor: help;
+    /* On change le curseur par défaut par un curseur d'aide. */
+}
+
+a.info:hover span {
+    display: inline;
+    /* On affiche l'infobulle. */
+    position: absolute;
+    white-space: nowrap;
+    /* On change la valeur de la propriété white-space pour qu'il n'y ait pas de retour à la ligne non désiré. */
+    bottom: 20px;
+    /* On positionne notre infobulle. */
+    right: 20px;
+    background: white;
+    color: green;
+    padding: 3px;
+    border: 1px solid green;
+    border-left: 4px solid green;
+}
+
+
+/** POSITION BOUTON ADMIN **/
+
+.bouton-admin {
+    float: right;
 }
 
 article,
@@ -367,6 +429,7 @@ th {
     font-style: normal;
     font-weight: 400;
     line-height: 1;
+    margin-right: 5px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale
 }

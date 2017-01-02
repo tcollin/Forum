@@ -21,8 +21,18 @@
         
         while ($i<$nombredesujet) { ?>
                             <tr>
-                                <td><b><a href="subject/">Sujet
-                                            <?php echo $i;?></a></b></td>
+                                <td><b><a href="subject/">Titre du sujet - id numéro
+                                            <?php echo $i;?></a></b>
+                                    <!-- IF ($login=$loginAdmin)  { }-->
+                                    <div class="bouton-admin">
+                                        <a href="#" class="info">
+                                            <div class="glyphicon glyphicon-ok-circle"></div><span>Résoudre le sujet</span>
+                                        </a>
+                                        <a href="#" class="info">
+                                            <div class="glyphicon glyphicon-remove-circle"></div><span>Supprimer le sujet</span>
+                                        </a>
+                                    </div>
+                                </td>
                                 <td><a href="#">Catégorie <?php echo $i;?></a></td>
                             </tr>
                             <?php $i++;
