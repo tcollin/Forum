@@ -77,12 +77,6 @@ main {
 
 /** INFOBULLE DES OUTILS ADMINISTRATEURS **/
 
-* {
-    font-size: 11px;
-    /* On définit les propriétés de texte pour toutes les balises. */
-    font-family: Tahoma, Verdana, Arial, serif;
-}
-
 a.info {
     position: relative;
     color: black;
