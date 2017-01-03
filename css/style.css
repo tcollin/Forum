@@ -30,6 +30,10 @@ html {
     margin-top: 10%;
 }
 
+.reponse {
+    margin-top: 30px
+}
+
 
 /** CSS du THEAD de la v_subject **/
 
@@ -1504,6 +1508,7 @@ body {
     line-height: 1.42857143;
     color: #333;
     background-color: #fff;
+    margin-top: 4%;
 }
 
 button,
@@ -5499,7 +5504,9 @@ textarea.input-group-sm>.input-group-btn>.btn {
 }
 .navbar-default {
     background-color: #f8f8f8;
-    border-color: #e7e7e7
+    border-color: #e7e7e7;
+    margin-bottom: 0;
+    margin-top: 3%
 }
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:hover {

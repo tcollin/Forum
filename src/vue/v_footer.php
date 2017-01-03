@@ -1,4 +1,4 @@
-<footer class="navbar navbar-default navbar-fixed-bottom">
+<footer class="navbar navbar-default">
     <div class="container">
         <span class="navbar-text">© Copyright 2016 - Mentions légales</span>
     </div>
