@@ -9,7 +9,9 @@
     <title>MyForum.com</title>
 
     <!-- Bootstrap -->
-    <link href="/Forum/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Forum/css/style.css" rel="stylesheet">
+    <script src="/Forum/ckeditor/ckeditor.js"></script>
+    <script src="//cdn.ckeditor.com/4.6.1/basic/ckeditor.js"></script>
 
     <!-- HTML5 shim and Respond.js dfor IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
