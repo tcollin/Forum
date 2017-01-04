@@ -25,10 +25,10 @@
                                             <?php echo $i;?></a></b>
                                     <!-- IF ($login=$loginAdmin)  { }-->
                                     <div class="bouton-admin">
-                                        <a href="#" class="info">
+                                        <a href="#?w=500" rel="resoudre_sujet" class="info poplight">
                                             <div class="glyphicon glyphicon-ok-circle"></div><span><b>Résoudre le sujet</b></span>
                                         </a>
-                                        <a href="#?w=500" rel="popup_name" class="info poplight">
+                                        <a href="#?w=500" rel="supprimer_sujet" class="info poplight">
                                             <div class="glyphicon glyphicon-remove-circle"></div><span><b>Supprimer le sujet</b></span>
                                         </a>
                                     </div>
@@ -45,7 +45,7 @@
     </div>
 
 
-    <div id="popup_name" class="popup_block">
+    <div id="supprimer_sujet" class="popup_block">
         <form>
             <label>Souhaitez-vous vraiment supprimer ce sujet ?</label>
             <div class="btn-popup">
@@ -54,6 +54,20 @@
             </div>
         </form>
     </div>
+
+    <div id="resoudre_sujet" class="popup_block">
+        <form>
+            <label>Ce sujet est-il résolu ?</label>
+            <br />
+            <input type="radio" name="resoudre" value="Oui"> Oui
+            <input type="radio" class="radio-resoudre" name="resoudre" value="Non" checked> Non
+            <div class="btn-popup">
+                <button class="btn btn-success btn-confirmer" id="btn-confirmer">Confirmer</button>
+            </div>
+        </form>
+    </div>
+
+
 
 
     <?php include('v_footer.php'); ?>

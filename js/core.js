@@ -27,7 +27,7 @@ $(document).ready(function () {
         $('#' + popID).fadeIn().css({
                 'width': Number(popWidth)
             })
-            .prepend('<a href="#" class="close"><img src="close_pop.png" class="btn_close" title="Fermer" alt="Fermer" /></a>');
+            .prepend('<a href="#" class="fermer"><img src="/Forum/img/close_pop.png" class="btn_close" title="Fermer" alt="Fermer" /></a>');
 
         //Récupération du margin, qui permettra de centrer la fenêtre - on ajuste de 80px en conformité avec le CSS
         var popMargTop = ($('#' + popID).height() + 80) / 2;
@@ -50,9 +50,9 @@ $(document).ready(function () {
     });
 
     //Fermeture de la pop-up et du fond
-    $('a.close, #fade').live('click', function () { //Au clic sur le bouton ou sur le calque...
+    $('a.fermer, #fade').live('click', function () { //Au clic sur le bouton ou sur le calque...
         $('#fade , .popup_block').fadeOut(function () {
-            $('#fade, a.close').remove(); //...ils disparaissent ensemble
+            $('#fade, a.fermer').remove(); //...ils disparaissent ensemble
         });
         return false;
     });

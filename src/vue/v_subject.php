@@ -24,7 +24,7 @@
                                             <br />User
                                             <?php echo $i;?>
                                                 <!-- IF ($login=$loginAdmin)  { }-->
-                                                <a href="#" class="info">
+                                                <a href="#?w=500" rel="bannir_utilisateur" class="info poplight">
                                                     <div class="glyphicon glyphicon-ban-circle"></div><span><b>Bannir l'utilisateur</b></span></a>
                                         </div>
                                         <!-- IF ($login=$loginAdmin)  { }-->
@@ -66,6 +66,17 @@
             <button class="btn btn-success btn-envoyer" id="btn-envoyer" onclick="cacherForm();">Envoyer</button>
         </form>
     </div>
+    </div>
+
+    <div id="bannir_utilisateur" class="popup_block">
+        <form>
+            <label>Pour bannir cet utilisateur veuillez renseigner votre mot de passe</label>
+            <input type=text id="mdp" class="bannir-mdp" />
+            <hr>
+            <div class="btn-popup">
+                <button class="btn btn-danger btn-confirmer" id="btn-bannir">Bannir</button>
+            </div>
+        </form>
     </div>
 
     <?php include('v_footer.php'); ?>

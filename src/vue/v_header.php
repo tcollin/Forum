@@ -30,17 +30,51 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <form class="navbar-form navbar-right">
-                        <div class="form-group">
-                            <input type="text" placeholder="Email" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" placeholder="Mot de passe" class="form-control">
-                        </div>
-                        <button type="submit" class="btn btn-success">Connexion</button>
-                        <button type="submit" class="btn btn-warning">Pas encore inscrit ?</button>
+                        <a href="#?w=500" rel="connexion" class="poplight">
+                            <button type="submit" class="btn btn-success">Connexion</button>
+                        </a>
+                        <a href="#?w=500" rel="inscription" class="poplight">
+                            <button type="submit" class="btn btn-warning">Pas encore inscrit ?</button>
+                        </a>
                     </form>
                 </div>
                 <!--/.navbar-collapse -->
             </div>
         </nav>
     </header>
+
+    <div id="connexion" class="popup_block">
+        <form>
+            <label>Pseudo :</label>
+            <br />
+            <input type=text id="pseudo" class="connexion-pseudo" />
+            <br />
+            <label>Mot de passe :</label>
+            <br />
+            <input type=text id="mdp" class="connexion-mdp" />
+            <div class="btn-popup">
+                <hr>
+                <button class="btn btn-success btn-connecter" id="btn-connecter">Se connecter</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="inscription" class="popup_block">
+        <form>
+            <label>Mail :</label>
+            <br />
+            <input type=text id="mail" class="inscription-mail" />
+            <br />
+            <label>Pseudo :</label>
+            <br />
+            <input type=text id="pseudo" class="inscription-pseudo" />
+            <br />
+            <label>Mot de passe :</label>
+            <br />
+            <input type=text id="mdp" class="inscription-mdp" />
+            <div class="btn-popup">
+                <hr>
+                <button class="btn btn-success btn-connecter" id="btn-connecter">S'inscrire</button>
+            </div>
+        </form>
+    </div>
