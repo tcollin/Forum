@@ -4,6 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+    "hash": "5b8b0c113bc0bbfa3afa627ec7caef69",
     "content-hash": "d1ed0f8dfd694451a55596fc02e4fcd1",
     "packages": [
         {
@@ -50,7 +51,7 @@
                 "container",
                 "dependency injection"
             ],
-            "time": "2015-09-11T15:10:35+00:00"
+            "time": "2015-09-11 15:10:35"
         },
         {
             "name": "psr/log",
@@ -97,7 +98,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10T12:19:37+00:00"
+            "time": "2016-10-10 12:19:37"
         },
         {
             "name": "silex/silex",
@@ -182,7 +183,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2016-11-06T18:09:06+00:00"
+            "time": "2016-11-06 18:09:06"
         },
         {
             "name": "symfony/debug",
@@ -239,7 +240,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2016-11-16T22:18:16+00:00"
+            "time": "2016-11-16 22:18:16"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -299,7 +300,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2016-10-13T06:29:04+00:00"
+            "time": "2016-10-13 06:29:04"
         },
         {
             "name": "symfony/http-foundation",
@@ -352,7 +353,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-11-27T04:21:38+00:00"
+            "time": "2016-11-27 04:21:38"
         },
         {
             "name": "symfony/http-kernel",
@@ -434,7 +435,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2016-12-13T13:19:46+00:00"
+            "time": "2016-12-13 13:19:46"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -493,7 +494,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-11-14T01:06:16+00:00"
+            "time": "2016-11-14 01:06:16"
         },
         {
             "name": "symfony/routing",
@@ -568,7 +569,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2016-11-25T12:32:42+00:00"
+            "time": "2016-11-25 12:32:42"
         },
         {
             "name": "twbs/bootstrap",
@@ -619,7 +620,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2016-07-25T15:51:55+00:00"
+            "time": "2016-07-25 15:51:55"
         }
     ],
     "packages-dev": [],

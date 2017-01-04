@@ -26,10 +26,10 @@
                                     <!-- IF ($login=$loginAdmin)  { }-->
                                     <div class="bouton-admin">
                                         <a href="#" class="info">
-                                            <div class="glyphicon glyphicon-ok-circle"></div><span>Résoudre le sujet</span>
+                                            <div class="glyphicon glyphicon-ok-circle"></div><span><b>Résoudre le sujet</b></span>
                                         </a>
-                                        <a href="#" class="info">
-                                            <div class="glyphicon glyphicon-remove-circle"></div><span>Supprimer le sujet</span>
+                                        <a href="#?w=500" rel="popup_name" class="info poplight">
+                                            <div class="glyphicon glyphicon-remove-circle"></div><span><b>Supprimer le sujet</b></span>
                                         </a>
                                     </div>
                                 </td>
@@ -43,5 +43,17 @@
         </main>
     </div>
     </div>
+
+
+    <div id="popup_name" class="popup_block">
+        <form>
+            <label>Souhaitez-vous vraiment supprimer ce sujet ?</label>
+            <div class="btn-popup">
+                <button class="btn btn-success btn-annuler" id="btn-annuler">Non</button>
+                <button class="btn btn-success btn-confirmer" id="btn-confirmer">Oui</button>
+            </div>
+        </form>
+    </div>
+
 
     <?php include('v_footer.php'); ?>

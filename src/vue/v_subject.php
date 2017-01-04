@@ -25,15 +25,15 @@
                                             <?php echo $i;?>
                                                 <!-- IF ($login=$loginAdmin)  { }-->
                                                 <a href="#" class="info">
-                                                    <div class="glyphicon glyphicon-ban-circle"></div><span>Bannir l'utilisateur</span></a>
+                                                    <div class="glyphicon glyphicon-ban-circle"></div><span><b>Bannir l'utilisateur</b></span></a>
                                         </div>
                                         <!-- IF ($login=$loginAdmin)  { }-->
                                         <div class="bouton-admin">
                                             <a href="#" class="info">
-                                                <div class="glyphicon glyphicon-ok-circle"></div><span>Modérer le message</span>
+                                                <div class="glyphicon glyphicon-edit"></div><span><b>Modérer le message</b></span>
                                             </a>
                                             <a href="#" class="info">
-                                                <div class="glyphicon glyphicon-remove-circle"></div><span>Supprimer le message</span>
+                                                <div class="glyphicon glyphicon-remove-circle"></div><span><b>Supprimer le message</b></span>
                                             </a>
                                         </div>
                                     </div>
@@ -52,14 +52,18 @@
                 <?php $i++;
         } ?>
         </main>
-        <form class="reponse">
+        <hr>
+        <button class="btn btn-success btn-reponse" id="btn-reponse" onclick="afficherForm();">Répondre
+            <div class="glyphicon glyphicon-share-alt"></div>
+        </button>
+        <form class="form-reponse" id="form-reponse">
             <textarea name="editor1" id="editor1" rows="5" cols="80">
             </textarea>
             <script>
-                // Replace the <textarea id="editor1"> with a CKEditor
-                // instance, using default configuration.
                 CKEDITOR.replace('editor1');
             </script>
+            <button class="btn btn-success btn-annuler" id="btn-annuler" onclick="cacherForm();">Annuler</button>
+            <button class="btn btn-success btn-envoyer" id="btn-envoyer" onclick="cacherForm();">Envoyer</button>
         </form>
     </div>
     </div>

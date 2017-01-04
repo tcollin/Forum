@@ -30,8 +30,96 @@ html {
     margin-top: 10%;
 }
 
-.reponse {
-    margin-top: 30px
+
+/** POP UP **/
+
+#fade {
+    /*--Masque opaque noir de fond--*/
+    display: none;
+    /*--masqué par défaut--*/
+    background: #000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .80;
+    z-index: 9999;
+}
+
+.popup_block {
+    text-align: center;
+    display: none;
+    /*--masqué par défaut--*/
+    background: #fff;
+    padding: 20px;
+    border: 20px solid #ddd;
+    float: left;
+    font-size: 1.2em;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 99999;
+    /*--Les différentes définitions de Box Shadow en CSS3--*/
+    -webkit-box-shadow: 0px 0px 20px #000;
+    -moz-box-shadow: 0px 0px 20px #000;
+    box-shadow: 0px 0px 20px #000;
+    /*--Coins arrondis en CSS3--*/
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+img.btn_close {
+    float: right;
+    margin: -55px -55px 0 0;
+}
+
+
+/*--Gérer la position fixed pour IE6--*/
+
+*html #fade {
+    position: absolute;
+}
+
+*html .popup_block {
+    position: absolute;
+}
+
+
+/** BOUTON POP-UP **/
+
+.btn-popup {
+    text-align: center;
+}
+
+.btn-popup .btn-annuler {
+    margin-top: 0px;
+    margin-right: 20px
+}
+
+
+/** BOUTON FORMULAIRE REPONSE CKEDITOR **/
+
+.btn-reponse {
+    float: right;
+}
+
+.btn-envoyer {
+    float: right;
+    margin-top: 10px
+}
+
+.btn-annuler {
+    margin-top: 10px
+}
+
+
+/** FORMULAIRE DE REPONSE CKEDITOR **/
+
+.form-reponse {
+    margin-top: 30px;
+    display: none;
 }
 
 
@@ -115,10 +203,9 @@ a.info:hover span {
     /* On positionne notre infobulle. */
     right: 20px;
     background: white;
-    color: green;
+    color: red;
     padding: 3px;
-    border: 1px solid green;
-    border-left: 4px solid green;
+    border: 1px solid red;
 }
 
 
@@ -426,11 +513,12 @@ th {
     position: relative;
     top: 1px;
     display: inline-block;
+    color: red;
     font-family: 'Glyphicons Halflings';
     font-style: normal;
     font-weight: 400;
     line-height: 1;
-    margin-right: 5px;
+    margin-left: 10px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale
 }
@@ -833,7 +921,8 @@ th {
 }
 
 .glyphicon-share-alt:before {
-    content: "\e095"
+    content: "\e095";
+    color: white;
 }
 
 .glyphicon-resize-full:before {
@@ -5505,8 +5594,8 @@ textarea.input-group-sm>.input-group-btn>.btn {
 .navbar-default {
     background-color: #f8f8f8;
     border-color: #e7e7e7;
+    margin-top: 3%;
     margin-bottom: 0;
-    margin-top: 3%
 }
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:hover {
