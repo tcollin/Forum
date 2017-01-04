@@ -9,10 +9,10 @@ echo 'La personne 1 est ', $membre->getPseudo(), ' , la personne 2 est ', $admin
 <br />'; echo 'L\'admin de la personne 1 est ', $membre->getRole(), ', l\'admin de la personne 2 est ', $admin->getRole(), '.
 <br />';
 
-$app->get('forum/', function () {    
+$app->get('/', function () {    
     ob_start();
     require 'src/vue/v_accueil.php';
-    $view = ob_get_clean();
+    $view = ob_get_clean();  
     return $view;
 });
 
