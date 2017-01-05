@@ -29,10 +29,10 @@
                                         </div>
                                         <!-- IF ($login=$loginAdmin)  { }-->
                                         <div class="bouton-admin">
-                                            <a href="#" class="info">
+                                            <a href="#" class="info" onclick="messageEdit(<?php echo $i ?>)">
                                                 <div class="glyphicon glyphicon-edit"></div><span><b>Modérer le message</b></span>
                                             </a>
-                                            <a href="#" class="info">
+                                            <a href="#?w=500" rel="supprimer_message" class="info poplight">
                                                 <div class="glyphicon glyphicon-remove-circle"></div><span><b>Supprimer le message</b></span>
                                             </a>
                                         </div>
@@ -43,7 +43,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <p id="message<?php echo $i ?>">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </td>
                             </tr>
                         </tbody>
@@ -75,6 +75,16 @@
             <hr>
             <div class="btn-popup">
                 <button class="btn btn-danger btn-confirmer" id="btn-bannir">Bannir</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="supprimer_message" class="popup_block">
+        <form>
+            <label>Souhaitez-vous vraiment supprimer ce message ?</label>
+            <div class="btn-popup">
+                <button class="btn btn-success btn-annuler" id="btn-annuler">Non</button>
+                <button class="btn btn-success btn-confirmer" id="btn-confirmer">Oui</button>
             </div>
         </form>
     </div>
