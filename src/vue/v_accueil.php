@@ -1,6 +1,17 @@
 <?php include('v_header.php'); ?>
 
     <div class="container">
+
+<?php 
+
+if(isset($membre)){ 
+	echo "Connecté en tant que : "+$membre;
+}
+else{
+	echo "Pas connecté";
+}
+?>
+	
         <div class="title">Bienvenue sur le forum !</div>
         <hr>
         <main>

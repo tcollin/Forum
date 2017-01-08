@@ -47,14 +47,14 @@
         <form>
             <label>Pseudo :</label>
             <br />
-            <input type=text id="pseudo" class="connexion-pseudo" />
+            <input type=text id="pseudo" name="pseudo" class="connexion-pseudo" />
             <br />
             <label>Mot de passe :</label>
             <br />
-            <input type=text id="mdp" class="connexion-mdp" />
+            <input type=password id="mdp" name="mdp" class="connexion-mdp" />
             <div class="btn-popup">
                 <hr>
-                <button class="btn btn-success btn-connecter" id="btn-connecter">Se connecter</button>
+                <button  class="btn btn-success btn-connecter"  name="connexion" id="btn-connecter">Se connecter</button>
             </div>
         </form>
     </div>
@@ -63,18 +63,18 @@
         <form>
             <label>Mail :</label>
             <br />
-            <input type=text id="mail" class="inscription-mail" />
+            <input type=text id="mail" name="mail"class="inscription-mail" />
             <br />
             <label>Pseudo :</label>
             <br />
-            <input type=text id="pseudo" class="inscription-pseudo" />
+            <input type=text id="pseudo" name="pseudo" class="inscription-pseudo" />
             <br />
             <label>Mot de passe :</label>
             <br />
-            <input type=text id="mdp" class="inscription-mdp" />
+            <input type=text id="mdp" name="mdp" class="inscription-mdp" />
             <div class="btn-popup">
                 <hr>
-                <button class="btn btn-success btn-connecter" id="btn-connecter">S'inscrire</button>
+                <button class="btn btn-success btn-connecter"name="inscription"  id="btn-connecter">S'inscrire</button>
             </div>
         </form>
     </div>
