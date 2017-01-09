@@ -12,6 +12,20 @@ function cacherForm() {
     btn.style.display = 'block';
 }
 
+function afficherFormSujet() {
+    var form = document.getElementById('form-sujet');
+    form.style.display = 'block';
+    var btn = document.getElementById('btn-sujet');
+    btn.style.display = 'none';
+}
+
+function cacherFormSujet() {
+    var form = document.getElementById('form-sujet');
+    form.style.display = 'none';
+    var btn = document.getElementById('btn-sujet');
+    btn.style.display = 'block';
+}
+
 $(document).ready(function () {
     //Lorsque vous cliquez sur un lien de la classe poplight et que le href commence par #
     $('a.poplight[href^=#]').click(function () {

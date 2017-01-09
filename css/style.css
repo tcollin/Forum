@@ -19,6 +19,16 @@ html {
     -ms-text-size-adjust: 100%
 }
 
+
+/** MODIFIE LE CHAMP INPUT DU FORM CREER SUJET **/
+
+.titre-sujet {
+    width: 90%;
+}
+
+
+/** TITRE : BIENVENUE SUR LE FORUM **/
+
 .title {
     text-shadow: -3px 1px 0 grey;
     font-weight: bold;
@@ -27,7 +37,7 @@ html {
     font-size: 42px;
     font-family: courier new, courier, monospace;
     text-align: center;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 
@@ -109,6 +119,10 @@ img.btn_close {
 
 /** BOUTON FORMULAIRE REPONSE CKEDITOR **/
 
+.btn-sujet {
+    float: right;
+}
+
 .btn-reponse {
     float: right;
 }
@@ -126,6 +140,14 @@ img.btn_close {
 /** FORMULAIRE DE REPONSE CKEDITOR **/
 
 .form-reponse {
+    margin-top: 30px;
+    display: none;
+}
+
+
+/** FORMULAIRE DE CREATION DE SUJET CKEDITOR **/
+
+.form-sujet {
     margin-top: 30px;
     display: none;
 }
@@ -156,7 +178,8 @@ img.btn_close {
 /** REALISATION DE LA SCROLLBAR SUR LE MAIN **/
 
 main {
-    height: 700px;
+    max-height: 700px;
+    height: 500;
     overflow: auto;
 }
 
@@ -536,7 +559,8 @@ th {
 }
 
 .glyphicon-plus:before {
-    content: "\002b"
+    content: "\002b";
+    color: #fff
 }
 
 .glyphicon-eur:before,
