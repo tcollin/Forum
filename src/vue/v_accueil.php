@@ -27,13 +27,9 @@ else{
                         </thead>
                         <tbody>
                             <?php 
-            /**$nombredesujet = 5;
-            $i = 1;
-        
-        while ($i<$nombredesujet) { **/
                                foreach ($sujets as $sujet) { ?>
                                 <tr>
-                                    <td><b><a href="subject/"><?php echo $sujet['sujet_titre'] ?>
+                                    <td><b><a href="subject/<?php echo $sujet['sujet_id'] ?>"><?php echo $sujet['sujet_titre'] ?>
                                 </a>
                                 </b>
                                         <!-- IF ($login=$loginAdmin)  { }-->

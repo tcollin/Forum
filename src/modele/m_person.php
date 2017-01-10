@@ -1,5 +1,5 @@
 <?php
-class Person {
+/**class Person {
     private $_pseudo;
     private $_mdp;
     private $_role;
@@ -35,4 +35,4 @@ class Person {
         return $this->_role;
     }
     
-}
+}**/

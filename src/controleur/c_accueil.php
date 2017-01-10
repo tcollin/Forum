@@ -1,8 +1,5 @@
 <?php
 
-require '/src/modele/m_person.php'; 
-require '/src/modele/m_subject.php';
-
 /** PHP OBJET
 $membre = new Person("user", "usermdp", 0); // Un premier personnage 
 $admin = new Person("admin", "adminmdp", 1); // Un second personnage 
