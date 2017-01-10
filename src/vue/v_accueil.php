@@ -27,13 +27,15 @@ else{
                         </thead>
                         <tbody>
                             <?php 
-            $nombredesujet = 5;
+            /**$nombredesujet = 5;
             $i = 1;
         
-        while ($i<$nombredesujet) { ?>
+        while ($i<$nombredesujet) { **/
+                               foreach ($sujets as $sujet) { ?>
                                 <tr>
-                                    <td><b><a href="subject/">Titre du sujet - id numéro
-                                            <?php echo $i;?></a></b>
+                                    <td><b><a href="subject/"><?php echo $sujet['sujet_titre'] ?>
+                                </a>
+                                </b>
                                         <!-- IF ($login=$loginAdmin)  { }-->
                                         <div class="bouton-admin">
                                             <a href="#?w=500" rel="resoudre_sujet" class="info poplight">
@@ -44,10 +46,9 @@ else{
                                             </a>
                                         </div>
                                     </td>
-                                    <td><a href="#">Catégorie <?php echo $i;?></a></td>
+                                    <td><a href="#">Catégorie</a></td>
                                 </tr>
-                                <?php $i++;
-        } ?>
+                                <?php } ?>
                         </tbody>
                     </table>
                 </div>
