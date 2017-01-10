@@ -2,13 +2,16 @@
 
     <div class="container">
 
-        <?php 
-
-if(isset($membre)){ 
-	echo "Connecté en tant que : "+$membre;
+<?php 
+if (isset($_SESSION["pseudo"])){ 
+	echo "Vous êtes connecté en tant que : ".$_SESSION["pseudo"];
 }
 else{
 	echo "Pas connecté";
+}
+
+if (isset($message)){
+	echo $message;
 }
 ?>
 

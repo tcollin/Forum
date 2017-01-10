@@ -18,4 +18,25 @@ $app->get('/', function () {
     return $view;
 });
 
+$app->post('/login', function () { 
+    $pseudo = $_POST['pseudo'];
+	$mdp = $_POST['mdp'];
+
+	$user = connexion($pseudo,$mdp);
+    
+	if ($user){
+		$_SESSION["pseudo"]=$pseudo;
+		$_SESSION["mdp"]=$mdp;
+	}else{
+		$message = "Pseudo ou Mdp incorrect !";
+	}
+	$sujets = getSujets();
+	
+	
+    ob_start();
+    require 'src/vue/v_accueil.php';
+    $view = ob_get_clean();  
+    return $view;
+});
+
 ?>

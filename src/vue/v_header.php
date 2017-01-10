@@ -44,17 +44,17 @@
     </header>
 
     <div id="connexion" class="popup_block">
-        <form>
+        <form method='post' action='login'>
             <label>Pseudo :</label>
             <br />
-            <input type=text id="pseudo" name="pseudo" class="connexion-pseudo" />
+            <input type="text" id="pseudo" name="pseudo" class="connexion-pseudo" require/>
             <br />
             <label>Mot de passe :</label>
             <br />
-            <input type=password id="mdp" name="mdp" class="connexion-mdp" />
+            <input type="password" id="mdp" name="mdp" class="connexion-mdp" require />
             <div class="btn-popup">
                 <hr>
-                <button  class="btn btn-success btn-connecter"  name="connexion" id="btn-connecter">Se connecter</button>
+                <button type="submit"  class="btn btn-success btn-connecter"  name="connexion" id="btn-connecter">Se connecter</button>
             </div>
         </form>
     </div>

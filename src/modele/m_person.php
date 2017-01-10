@@ -1,4 +1,18 @@
 <?php
+
+
+function connexion($pseudo,$mdp) {
+	
+    $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
+    $user = $bdd->query("SELECT personne_pseudo, personne_mdp FROM personne WHERE personne_pseudo = '".$pseudo."' AND personne_mdp = '".$mdp."';");
+    return $user;
+}
+
+function inscription ($mail,$pseudo,$mdp){
+	$bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
+    $res = $bdd->query("INSERT INTO personne VALUES (' ','".$mail."','".$pseudo."','".$mdp.",2);");
+    return $res;
+}
 /**class Person {
     private $_pseudo;
     private $_mdp;
