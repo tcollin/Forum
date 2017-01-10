@@ -11,7 +11,6 @@ echo 'La personne 1 est ', $membre->getPseudo(), ' , la personne 2 est ', $admin
 
 $app->get('/', function () { 
     $sujets = getSujets();
-    
     ob_start();
     require 'src/vue/v_accueil.php';
     $view = ob_get_clean();  
@@ -23,8 +22,10 @@ $app->post('/login', function () {
 	$mdp = $_POST['mdp'];
 
 	$user = connexion($pseudo,$mdp);
-    
-	if ($user){
+	var_dump($pseudo);
+	var_dump($mdp);
+	var_dump($user);
+	if ($user==true){
 		$_SESSION["pseudo"]=$pseudo;
 		$_SESSION["mdp"]=$mdp;
 	}else{
@@ -32,6 +33,23 @@ $app->post('/login', function () {
 	}
 	$sujets = getSujets();
 	
+    ob_start();
+    require 'src/vue/v_accueil.php';
+    $view = ob_get_clean();  
+    return $view;
+});
+
+$app->post('/inscription', function () { 
+	$mail = $_POST['mail'];
+    $pseudo = $_POST['pseudo'];
+	$mdp = $_POST['mdp'];
+	
+	$user = inscription($mail,$pseudo,$mdp);
+	var_dump($user);
+	if ($user){
+		$message = "Inscription Succès !";
+	}
+	$sujets = getSujets();
 	
     ob_start();
     require 'src/vue/v_accueil.php';

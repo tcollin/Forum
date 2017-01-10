@@ -9,7 +9,9 @@ if (isset($_SESSION["pseudo"])){
 else{
 	echo "Pas connecté";
 }
-
+?>
+</br>
+<?php
 if (isset($message)){
 	echo $message;
 }
