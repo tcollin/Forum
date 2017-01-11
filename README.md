@@ -1,11 +1,9 @@
 # Forum
 Réalisation de l'index et de l'environnement Silex et Bootstrap du projet
 
-Commit 1 :
 Architecture MVC  …
 Ajout de l'architecture MVC et des pages principales dont on aura besoin
 : pourr le moment vide
-tcollin committed 8 days ago
 
 Modfication de l'index  …
 Finition du style du forum (il manque juste un fond), ajout d'un footer
@@ -77,3 +75,74 @@ modérer le message et supprimer un message
 Fin des popups  …
 Le popup modérer le message n'exsite pas c'est un bouton qui modifie
 directement la balise p en champs textarea
+
+MàJ du ReadMe  …
+Je mets tous les commits dedans
+	
+début gestion connexion  …
+Fonction pour afficher le membre/ admin connecté
+Attributs name pour gérer la connexion et l'inscription
+
+Ajout du formulaire nouveau sujet  …
+- ajout du nouveau formulaire donc j'ai du créer de nouvelle fonction js
+pour afficher et cacher le formulaire, le code html est dans la page
+v_accueil
+
+Base de donnée Forum  …
+Ajout du fichier SQL contenant la création des tables, ainsi que des
+insertions
+
+Forum BDD, correction  …
+Correction d'erreurs de la BDD, toujours un souci sur la contrainte DATE
+
+Fichier SQL pour base de donnée Forum  …
+Mise à disposition du fichier SQL (test de commit, encore un souci à
+régler pour la date au niveau des clés étrangères)
+
+Base de donnée forum corrigée + Inserts  …
+Base de donnée sans erreur, avec inserts;
+Supression de la table DATE inutile;
+Ajout d'une clé étrangere id_personne dans sujet (pour identifier
+l'auteur d'un sujet sans avoir à regarder le premier post);
+
+Correction BDD  …
+- Dans les insert il y a des données brut tels que catégorie où j'ai
+rajouté plus exemple et rôle où j'ai rajouté modérateur pour le futur et
+corrigé par rapport aux modifications des tables
+- Supprimer le post_id dans post car on retrouver un post unique grâce
+aux 3 clés primaires déjà présente
+- Supprimer le personne_id dans sujet car on peut déjà le retrouver via
+post
+- Modification des varchar et not null par ci par là
+
+Fonction d'exemple getSujets()  …
+- m_subject : construction de la fonction simple non sécruisé avec la
+connexion PDO à la bdd (user=root)
+- c_accueil : execution de la fonction
+- v_accueil affichage du resultat
+
+Modification de la route sujet  …
+- ancienne route forum/subject/
+- nouvelle route forum/subject/{id}
+
+connexion / début inscription  …
+Connexion d'un utilisateur -> ne fonctionne pas encore bien
+Début requête inscription
+
+inscription  …
+début inscription avec modif formulaire et requête
+->qui ne fonctionne pas
+
+connexion/deconnexion  …
+Connexion et Déconnexion fonctionnent.
+A voir pour une amélioration en utilisant session_start()
+
+modif message + inscription  …
+Requête préparée inscription
+Affichage message en fonction de l'action
+Ajout dans style.css
+
+Affichage des posts  …
+- Affichage des posts avec la méthode getPosts (cf fonctionnement de
+getSujet)
+
