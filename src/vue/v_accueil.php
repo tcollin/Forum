@@ -3,20 +3,20 @@
     <div class="container">
 
 <?php 
-if (isset($_SESSION["pseudo"])){ 
-	echo "Vous êtes connecté en tant que : ".$_SESSION["pseudo"];
+if (isset($_SESSION["pseudo"])){ ?>
+    <p>Bonjour <strong><?php echo $_SESSION["pseudo"]; ?></strong> !</p>
+<?php }else{
+	echo "Pas connecté"; //A enlever //Juste pour test de connexion
 }
-else{
-	echo "Pas connecté";
+        
+if (isset($message)){ ?>
+    <div class="alert alert-info">
+    <a href="#" class="close" data-dismiss="alert">&times;</a>
+		<?php echo $message; ?>
+    </div>
+<?php	
 }
 ?>
-</br>
-<?php
-if (isset($message)){
-	echo $message;
-}
-?>
-
             <div class="title">Bienvenue sur le forum !</div>
             <hr>
             <main>

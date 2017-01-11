@@ -27,7 +27,7 @@ $app->post('/login', function () {
 		$_SESSION["pseudo"]=$pseudo;
 		$_SESSION["mdp"]=$mdp;
 	}else{
-		$message = "Pseudo ou Mdp incorrect !";
+		$message = "Pseudo ou Mdp incorrect !"; 
 	}
 	$sujets = getSujets();
 	
@@ -43,9 +43,9 @@ $app->post('/inscription', function () {
 	$mdp = $_POST['mdp'];
 	
 	$user = inscription($mail,$pseudo,$mdp);
-	var_dump($user);
+	//var_dump($user);
 	if ($user){
-		$message = "Inscription Succès !";
+		$message = "Vous êtes inscrits ! Vous pouvez maintenant vous connecter.";
 	}
 	$sujets = getSujets();
 	
@@ -56,7 +56,8 @@ $app->post('/inscription', function () {
 });
 
 $app->post('/deconnexion', function () { 
-	
+    
+	$message = "Vous êtes déconnecté.";
 	$sujets = getSujets();
 	
     ob_start();

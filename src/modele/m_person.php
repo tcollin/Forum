@@ -1,5 +1,7 @@
 <?php
-
+/*
+* Vérifie la connexion
+*/
 function connexion($pseudo,$mdp) {
 	
     $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
@@ -11,7 +13,9 @@ function connexion($pseudo,$mdp) {
 
 function inscription ($mail,$pseudo,$mdp){
 	$bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
-    $res = $bdd->query("INSERT INTO personne VALUES (' ','".$mail."','".$pseudo."','".$mdp.",2);");
+    $req = $bdd->prepare("INSERT INTO personne VALUES (,:pseudo,:mdp,:mail,2)"); 
+    $req->execute (array('pseudo'=>$pseudo, 'mdp'=>$mdp, 'mail'=>$mail));
+    $res = $req->fetch();
 	return $res;
 }
 
