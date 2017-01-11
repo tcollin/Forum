@@ -22,7 +22,7 @@ $app->post('/login', function () {
 	$mdp = $_POST['mdp'];
 
 	$user = connexion($pseudo,$mdp);
-	//var_dump($pseudo);var_dump($mdp);var_dump($user);
+	var_dump($user);
 	if ($user){
 		$_SESSION["pseudo"]=$pseudo;
 		$_SESSION["mdp"]=$mdp;
@@ -42,11 +42,12 @@ $app->post('/inscription', function () {
     $pseudo = $_POST['pseudo'];
 	$mdp = $_POST['mdp'];
 	
-	$user = inscription($mail,$pseudo,$mdp);
-	//var_dump($user);
-	if ($user){
-		$message = "Vous êtes inscrits ! Vous pouvez maintenant vous connecter.";
-	}
+    var_dump($mail);
+    var_dump($pseudo);
+    var_dump($mdp);
+	inscription($pseudo,$mdp,$mail);
+	$message = "Vous êtes inscrits ! Vous pouvez maintenant vous connecter.";
+	
 	$sujets = getSujets();
 	
     ob_start();

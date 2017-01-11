@@ -11,12 +11,18 @@ function connexion($pseudo,$mdp) {
 	return $user;
 }
 
-function inscription ($mail,$pseudo,$mdp){
-	$bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
-    $req = $bdd->prepare("INSERT INTO personne VALUES (,:pseudo,:mdp,:mail,2)"); 
-    $req->execute (array('pseudo'=>$pseudo, 'mdp'=>$mdp, 'mail'=>$mail));
-    $res = $req->fetch();
-	return $res;
+function inscription ($pseudo,$mdp,$mail){
+    $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
+    $req1 = $bdd->prepare ("SELECT personne_pseudo FROM personne WHERE personne_pseudo =:pseudo");
+    $req1->execute(array('pseudo'=>$pseudo));
+    $user = $req1->fetch();
+    
+    if($user){
+        
+    }else{
+        $req2 = $bdd->prepare("INSERT INTO personne (personne_pseudo,personne_mdp,personne_mail,role_id) VALUES (:pseudo,:mdp,:mail,2)"); 
+        $req2->execute (array('pseudo'=>$pseudo, 'mdp'=>$mdp, 'mail'=>$mail));
+    }
 }
 
 /**class Person {
