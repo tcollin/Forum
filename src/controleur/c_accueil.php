@@ -27,7 +27,7 @@ $app->post('/login', function () {
 		$_SESSION["pseudo"]=$pseudo;
 		$_SESSION["mdp"]=$mdp;
 	}else{
-		$message = "Pseudo ou Mdp incorrect !"; 
+		$message = "Pseudo ou mot de passe incorrect !"; 
 	}
 	$sujets = getSujets();
 	

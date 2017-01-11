@@ -12,7 +12,8 @@
             $nombredemessage = 5;
             $i = 1;
         
-        while ($i<$nombredemessage) { ?>
+       /* while ($i<$nombredemessage) {*/ 
+            foreach ($posts as $post) { ?>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -20,12 +21,13 @@
                                 <th>
                                     <div class="user">
                                         <div class="userimg"></div>
-                                        <div class="usertext">Titre sujet
-                                            <br />User
-                                            <?php echo $i;?>
-                                                <!-- IF ($login=$loginAdmin)  { }-->
-                                                <a href="#?w=500" rel="bannir_utilisateur" class="info poplight">
-                                                    <div class="glyphicon glyphicon-ban-circle"></div><span><b>Bannir l'utilisateur</b></span></a>
+                                        <div class="usertext">
+                                            <?php echo $post['sujet_titre'];?>
+                                                <br />
+                                                <?php echo $post['personne_pseudo'];?>
+                                                    <!-- IF ($login=$loginAdmin)  { }-->
+                                                    <a href="#?w=500" rel="bannir_utilisateur" class="info poplight">
+                                                        <div class="glyphicon glyphicon-ban-circle"></div><span><b>Bannir l'utilisateur</b></span></a>
                                         </div>
                                         <!-- IF ($login=$loginAdmin)  { }-->
                                         <div class="bouton-admin">
@@ -43,14 +45,16 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <p id="message<?php echo $i ?>">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <p id="message<?php echo $i ?>">
+                                        <?php echo $post['post_texte']; ?>
+                                    </p>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <?php $i++;
-        } ?>
+        }?>
         </main>
         <hr>
         <button class="btn btn-success btn-reponse" id="btn-reponse" onclick="afficherForm();">Répondre
