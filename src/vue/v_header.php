@@ -30,9 +30,17 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <form class="navbar-form navbar-right">
+                        
+                        <?php if (!isset($_SESSION["pseudo"])){?>
                         <a href="#?w=500" rel="connexion" class="poplight">
                             <button type="submit" class="btn btn-success">Connexion</button>
                         </a>
+                        <?php }  else{ ?>
+                            <a href="#?w=500" rel="deconnexion" class="poplight">
+                            <button type="submit" class="btn btn-danger">Deconnexion</button>
+                        </a>
+                       <?php } ?>
+                        
                         <a href="#?w=500" rel="inscription" class="poplight">
                             <button type="submit" class="btn btn-warning">Pas encore inscrit ?</button>
                         </a>
@@ -47,14 +55,24 @@
         <form method='post' action='login'>
             <label>Pseudo :</label>
             <br />
-            <input type="text" id="pseudo" name="pseudo" class="connexion-pseudo" require/>
+            <input type="text" id="pseudo" name="pseudo" class="connexion-pseudo" />
             <br />
             <label>Mot de passe :</label>
             <br />
-            <input type="password" id="mdp" name="mdp" class="connexion-mdp" require />
+            <input type="password" id="mdp" name="mdp" class="connexion-mdp"  />
             <div class="btn-popup">
                 <hr>
                 <button type="submit"  class="btn btn-success btn-connecter"  name="connexion" id="btn-connecter">Se connecter</button>
+            </div>
+        </form>
+    </div>
+    
+    <div id="deconnexion" class="popup_block">
+        <form method='post' action='deconnexion'>
+            <label>Vous allez vous déconnecter</label>
+            <div class="btn-popup">
+                <hr>
+                <button type="submit"  class="btn btn-success btn-connecter"  name="deco" id="btn-deconnecter">Ok</button>
             </div>
         </form>
     </div>

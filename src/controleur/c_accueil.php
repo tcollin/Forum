@@ -22,10 +22,8 @@ $app->post('/login', function () {
 	$mdp = $_POST['mdp'];
 
 	$user = connexion($pseudo,$mdp);
-	var_dump($pseudo);
-	var_dump($mdp);
-	var_dump($user);
-	if ($user==true){
+	//var_dump($pseudo);var_dump($mdp);var_dump($user);
+	if ($user){
 		$_SESSION["pseudo"]=$pseudo;
 		$_SESSION["mdp"]=$mdp;
 	}else{
@@ -49,6 +47,16 @@ $app->post('/inscription', function () {
 	if ($user){
 		$message = "Inscription Succès !";
 	}
+	$sujets = getSujets();
+	
+    ob_start();
+    require 'src/vue/v_accueil.php';
+    $view = ob_get_clean();  
+    return $view;
+});
+
+$app->post('/deconnexion', function () { 
+	
 	$sujets = getSujets();
 	
     ob_start();

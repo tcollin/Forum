@@ -1,18 +1,12 @@
 <?php
 
-
 function connexion($pseudo,$mdp) {
 	
     $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
-	$req = "SELECT * FROM personne WHERE personne_pseudo = '$pseudo' AND personne_mdp = '$mdp'";
-    $user = $bdd->query($req);
-    return $user;
-	
-	
-	/*$req = $bdd->prepare("SELECT personne_pseudo FROM personne WHERE personne_pseudo = :pseudo' AND personne_mdp = :mdp");
+	$req = $bdd->prepare("SELECT personne_pseudo FROM personne WHERE personne_pseudo = :pseudo AND personne_mdp = :mdp");
     $req->execute (array('pseudo'=>$pseudo, 'mdp'=>$mdp));
 	$user = $req->fetch();
-	return $user;*/
+	return $user;
 }
 
 function inscription ($mail,$pseudo,$mdp){
