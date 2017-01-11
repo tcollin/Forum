@@ -18,7 +18,7 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>
+                                <th class="header-post">
                                     <div class="user">
                                         <div class="userimg"></div>
                                         <div class="usertext">
@@ -48,6 +48,13 @@
                                     <p id="message<?php echo $i ?>">
                                         <?php echo $post['post_texte']; ?>
                                     </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="postdate">
+                                    <div>
+                                        <?php echo $post['post_date'];?>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
