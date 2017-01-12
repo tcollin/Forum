@@ -67,9 +67,11 @@ if (isset($filtre)){ ?>
                                 </div>
                             </main>
                             <hr>
+                            <?php if (isset($_SESSION["pseudo"])){ //si visiteur n'est pas connecté, il ne peut pas créer un nouveau sujet ?> 
                             <button class="btn btn-success btn-sujet" id="btn-sujet" onclick="afficherFormSujet();">Nouveau sujet
                                 <div class="glyphicon glyphicon-plus"></div>
                             </button>
+                            <?php } ?>
                             <form class="form-sujet" id="form-sujet">
                                 <label>Titre du sujet :</label>
                                 <input type=text name="titre-sujet" class="titre-sujet" />

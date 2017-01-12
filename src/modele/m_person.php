@@ -12,17 +12,20 @@ function connexion($pseudo,$mdp) {
 }
 
 function inscription ($pseudo,$mdp,$mail){
+    $res = false; //user pas encore crée
+    
     $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
-    $req1 = $bdd->prepare ("SELECT personne_pseudo FROM personne WHERE personne_pseudo =:pseudo");
-    $req1->execute(array('pseudo'=>$pseudo));
+    $req1 = $bdd->prepare ("SELECT personne_mail FROM personne WHERE personne_mail =:mail");
+    $req1->execute(array('mail'=>$mail));
     $user = $req1->fetch();
     
     if($user){
-        
+        $res = true; //user existe déjà
     }else{
         $req2 = $bdd->prepare("INSERT INTO personne (personne_pseudo,personne_mdp,personne_mail,role_id) VALUES (:pseudo,:mdp,:mail,2)"); 
         $req2->execute (array('pseudo'=>$pseudo, 'mdp'=>$mdp, 'mail'=>$mail));
     }
+    return $res;
 }
 
 /**class Person {

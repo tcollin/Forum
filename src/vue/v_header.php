@@ -26,24 +26,25 @@
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="../">MyForum.com</a>
+                    <a class="navbar-brand" href="/Forum">MyForum.com</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <form class="navbar-form navbar-right">
                         
-                        <?php if (!isset($_SESSION["pseudo"])){?>
+                        <?php if (!isset($_SESSION["pseudo"])){
+                        //si pas connecté, affichage bouton connexion et inscription ?>
                         <a href="#?w=500" rel="connexion" class="poplight">
                             <button type="submit" class="btn btn-success">Connexion</button>
                         </a>
-                        <?php }  else{ ?>
+                        <a href="#?w=500" rel="inscription" class="poplight">
+                            <button type="submit" class="btn btn-warning">Pas encore inscrit ?</button>
+                        </a>
+                        <?php }  else{ 
+                        //sinon afiche seulement le bouton de connexion?>
                             <a href="#?w=500" rel="deconnexion" class="poplight">
                             <button type="submit" class="btn btn-danger">Deconnexion</button>
                         </a>
                        <?php } ?>
-                        
-                        <a href="#?w=500" rel="inscription" class="poplight">
-                            <button type="submit" class="btn btn-warning">Pas encore inscrit ?</button>
-                        </a>
                     </form>
                 </div>
                 <!--/.navbar-collapse -->
@@ -76,13 +77,9 @@
             </div>
         </form>
     </div>
-
+    
     <div id="inscription" class="popup_block">
         <form method='post' action='inscription'>
-            <label>Mail :</label>
-            <br />
-            <input type="text" id="mail" name="mail"class="inscription-mail" />
-            <br />
             <label>Pseudo :</label>
             <br />
             <input type="text" id="pseudo" name="pseudo" class="inscription-pseudo" />
@@ -90,6 +87,10 @@
             <label>Mot de passe :</label>
             <br />
             <input type="password" id="mdp" name="mdp" class="inscription-mdp" />
+            <br />
+            <label>Mail :</label>
+            <br />
+            <input type="text" id="mail" name="mail"class="inscription-mail" />
             <div class="btn-popup">
                 <hr>
                 <button class="btn btn-success btn-connecter"name="inscription"  id="btn-connecter">S'inscrire</button>

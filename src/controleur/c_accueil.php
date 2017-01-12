@@ -11,6 +11,8 @@ echo 'La personne 1 est ', $membre->getPseudo(), ' , la personne 2 est ', $admin
 
 $app->get('/', function () { 
     $sujets = getSujets();
+    //$auth = getRole();
+    
     ob_start();
     require 'src/vue/v_accueil.php';
     $view = ob_get_clean();  
@@ -33,7 +35,7 @@ $app->post('/login', function () {
 	$mdp = $_POST['mdp'];
 
 	$user = connexion($pseudo,$mdp);
-	var_dump($user);
+	//var_dump($user);
 	if ($user){
 		$_SESSION["pseudo"]=$pseudo;
 		$_SESSION["mdp"]=$mdp;
@@ -52,13 +54,13 @@ $app->post('/inscription', function () {
 	$mail = $_POST['mail'];
     $pseudo = $_POST['pseudo'];
 	$mdp = $_POST['mdp'];
-	
-    var_dump($mail);
-    var_dump($pseudo);
-    var_dump($mdp);
-	inscription($pseudo,$mdp,$mail);
-	$message = "Vous êtes inscrits ! Vous pouvez maintenant vous connecter.";
-	
+    //var_dump($mail);var_dump($pseudo);var_dump($mdp);
+	$res = inscription($pseudo,$mdp,$mail);
+    if ($res==false){
+	   $message = "Vous êtes inscrits ! Vous pouvez maintenant vous connecter.";
+    }else{
+        $message = "Cette adresse email est déjà utilisée. Veuillez recommencer.";
+    }
 	$sujets = getSujets();
 	
     ob_start();
