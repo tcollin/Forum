@@ -2,86 +2,98 @@
 
     <div class="container">
 
-<?php 
+        <?php 
 if (isset($_SESSION["pseudo"])){ ?>
-    <p>Bonjour <strong><?php echo $_SESSION["pseudo"]; ?></strong> !</p>
-<?php }else{
-	echo "Pas connecté"; //A enlever //Juste pour test de connexion
+            <p>Bonjour <strong><?php echo $_SESSION["pseudo"]; ?></strong> !</p>
+            <?php }else{
 }
         
 if (isset($message)){ ?>
-    <div class="alert alert-info">
-    <a href="#" class="close" data-dismiss="alert">&times;</a>
-		<?php echo $message; ?>
-    </div>
-<?php	
+                <div class="alert alert-info">
+                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    <?php echo $message; ?>
+                </div>
+                <?php	
 }
+if (isset($filtre)){ ?>
+                    <div class="alert alert-warning">
+                        <a href="." class="close" data-dismiss="alert">&times;</a>
+                        <?php echo $filtre; ?>
+                    </div>
+                    <?php	
+}
+        else { ?>
+                        <div class="title">Bienvenue sur le forum !</div>
+                        <?php }
 ?>
-            <div class="title">Bienvenue sur le forum !</div>
-            <hr>
-            <main>
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th>
-                                    <h4>Sujet</h4></th>
-                                <th>
-                                    <h4>Catégorie</h4></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php 
+                            <hr>
+                            <main>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <h4>Sujet</h4></th>
+                                                <th>
+                                                    <h4>Catégorie</h4></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php 
                                foreach ($sujets as $sujet) { ?>
-                                <tr>
-                                    <td><b><a href="subject/<?php echo $sujet['sujet_id'] ?>"><?php echo $sujet['sujet_titre'] ?>
+                                                <tr>
+                                                    <td><b><a href="subject/<?php echo $sujet['sujet_id'] ?>"><?php echo $sujet['sujet_titre'] ?>
                                 </a>
                                 </b>
-                                        <!-- IF ($login=$loginAdmin)  { }-->
-                                        <div class="bouton-admin">
-                                            <a href="#?w=500" rel="resoudre_sujet" class="info poplight">
-                                                <div class="glyphicon glyphicon-ok-circle"></div><span><b>Résoudre le sujet</b></span>
-                                            </a>
-                                            <a href="#?w=500" rel="supprimer_sujet" class="info poplight">
-                                                <div class="glyphicon glyphicon-remove-circle"></div><span><b>Supprimer le sujet</b></span>
-                                            </a>
-                                        </div>
-                                    </td>
-                                    <td><a href="#">Catégorie</a></td>
-                                </tr>
-                                <?php } ?>
-                        </tbody>
-                    </table>
-                </div>
-            </main>
-            <hr>
-            <button class="btn btn-success btn-sujet" id="btn-sujet" onclick="afficherFormSujet();">Nouveau sujet
-                <div class="glyphicon glyphicon-plus"></div>
-            </button>
-            <form class="form-sujet" id="form-sujet">
-                <label>Titre du sujet :</label>
-                <input type=text name="titre-sujet" class="titre-sujet" />
-                <label>Catégorie :</label>
-                <select>
-                    <?php 
+                                                        <!-- IF ($login=$loginAdmin)  { }-->
+                                                        <div class="bouton-admin">
+                                                            <a href="#?w=500" rel="resoudre_sujet" class="info poplight">
+                                                                <div class="glyphicon glyphicon-ok-circle"></div><span><b>Résoudre le sujet</b></span>
+                                                            </a>
+                                                            <a href="#?w=500" rel="supprimer_sujet" class="info poplight">
+                                                                <div class="glyphicon glyphicon-remove-circle"></div><span><b>Supprimer le sujet</b></span>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="<?php echo $sujet['categorie_id'] ?>">
+                                                            <?php echo $sujet['categorie_nom'] ?>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </main>
+                            <hr>
+                            <button class="btn btn-success btn-sujet" id="btn-sujet" onclick="afficherFormSujet();">Nouveau sujet
+                                <div class="glyphicon glyphicon-plus"></div>
+                            </button>
+                            <form class="form-sujet" id="form-sujet">
+                                <label>Titre du sujet :</label>
+                                <input type=text name="titre-sujet" class="titre-sujet" />
+                                <label>Catégorie :</label>
+                                <select>
+                                    <?php 
             $nombredecategorie = 10;
             $i = 1;
         
         while ($i<$nombredecategorie) { ?>
-                        <option value="categorie<?php echo $i; ?>">Catégorie
-                            <?php echo $i;?>
-                        </option>
-                        <?php $i++;
+                                        <option value="categorie<?php echo $i; ?>">Catégorie
+                                            <?php echo $i;?>
+                                        </option>
+                                        <?php $i++;
                                       } ?>
-                </select>
-                <textarea name="editor1" id="editor1" rows="5" cols="80">
-                </textarea>
-                <script>
-                    CKEDITOR.replace('editor1');
-                </script>
-                <button class="btn btn-success btn-annuler" id="btn-annuler" onclick="cacherFormSujet();">Annuler</button>
-                <button class="btn btn-success btn-envoyer" id="btn-envoyer" onclick="cacherFormSujet();">Créer</button>
-            </form>
+                                </select>
+                                <textarea name="editor1" id="editor1" rows="5" cols="80">
+                                </textarea>
+                                <script>
+                                    CKEDITOR.replace('editor1');
+                                </script>
+                                <button class="btn btn-success btn-annuler" id="btn-annuler" onclick="cacherFormSujet();">Annuler</button>
+                                <button class="btn btn-success btn-envoyer" id="btn-envoyer" onclick="cacherFormSujet();">Créer</button>
+                            </form>
     </div>
     </div>
 

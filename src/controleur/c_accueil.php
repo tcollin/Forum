@@ -17,6 +17,17 @@ $app->get('/', function () {
     return $view;
 });
 
+$app->get('/{id}', function ($id) { 
+    $sujets = getSujetsByCategories($id);
+    foreach ($sujets as $sujet) {
+        $filtre = $sujet['categorie_nom'];
+    }
+    ob_start();
+    require 'src/vue/v_accueil.php';
+    $view = ob_get_clean();  
+    return $view;
+});
+
 $app->post('/login', function () { 
     $pseudo = $_POST['pseudo'];
 	$mdp = $_POST['mdp'];
