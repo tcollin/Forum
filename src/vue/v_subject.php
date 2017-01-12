@@ -1,3 +1,4 @@
+<?php session_start (); ?>
 <?php include('v_header.php'); ?>
 
     <div class="container">

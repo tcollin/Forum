@@ -12,7 +12,7 @@ echo 'La personne 1 est ', $membre->getPseudo(), ' , la personne 2 est ', $admin
 $app->get('/', function () { 
     $sujets = getSujets();
     //$auth = getRole();
-    
+    session_start ();
     ob_start();
     require 'src/vue/v_accueil.php';
     $view = ob_get_clean();  
@@ -20,6 +20,7 @@ $app->get('/', function () {
 });
 
 $app->get('/{id}', function ($id) { 
+    session_start ();
     $sujets = getSujetsByCategories($id);
     foreach ($sujets as $sujet) {
         $filtre = $sujet['categorie_nom'];
@@ -37,6 +38,7 @@ $app->post('/login', function () {
 	$user = connexion($pseudo,$mdp);
 	//var_dump($user);
 	if ($user){
+        session_start ();
 		$_SESSION["pseudo"]=$pseudo;
 		$_SESSION["mdp"]=$mdp;
 	}else{
@@ -70,6 +72,11 @@ $app->post('/inscription', function () {
 });
 
 $app->post('/deconnexion', function () { 
+    session_start ();
+    // On détruit les variables de notre session
+    session_unset ();
+    // On détruit notre session
+    session_destroy ();
     
 	$message = "Vous êtes déconnecté.";
 	$sujets = getSujets();
