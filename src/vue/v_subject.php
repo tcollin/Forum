@@ -1,7 +1,13 @@
-<?php session_start (); ?>
+
 <?php include('v_header.php'); ?>
 
     <div class="container">
+        
+        <?php 
+if (isset($_SESSION["pseudo"])){ ?>
+            <p>Bonjour <strong><?php echo $_SESSION["pseudo"]; ?></strong> !</p>
+            <?php }else{
+}?>
         <a href="../">
             <button class="btn btn-success">Retour</button>
         </a>

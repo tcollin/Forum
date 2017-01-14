@@ -32,7 +32,7 @@ $app->get('/{id}', function ($id) {
 });
 
 $app->post('/login', function () { 
-    $pseudo = $_POST['pseudo'];
+        $pseudo = $_POST['pseudo'];
 	$mdp = $_POST['mdp'];
 
 	$user = connexion($pseudo,$mdp);
@@ -53,8 +53,9 @@ $app->post('/login', function () {
 });
 
 $app->post('/inscription', function () { 
+        session_start ();
 	$mail = $_POST['mail'];
-    $pseudo = $_POST['pseudo'];
+        $pseudo = $_POST['pseudo'];
 	$mdp = $_POST['mdp'];
     //var_dump($mail);var_dump($pseudo);var_dump($mdp);
 	$res = inscription($pseudo,$mdp,$mail);
@@ -86,5 +87,7 @@ $app->post('/deconnexion', function () {
     $view = ob_get_clean();  
     return $view;
 });
+
+
 
 ?>
