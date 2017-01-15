@@ -11,7 +11,7 @@ echo 'La personne 1 est ', $membre->getPseudo(), ' , la personne 2 est ', $admin
 
 $app->get('/', function () { 
     $sujets = getSujets();
-    //$auth = getRole();
+    
     session_start ();
     ob_start();
     require 'src/vue/v_accueil.php';
@@ -36,11 +36,13 @@ $app->post('/login', function () {
 	$mdp = $_POST['mdp'];
 
 	$user = connexion($pseudo,$mdp);
-	//var_dump($user);
-	if ($user){
+        $role = getRole($pseudo);
+	//var_dump($user);var_dump($role);
+	if ($user&&$role){
         session_start ();
 		$_SESSION["pseudo"]=$pseudo;
 		$_SESSION["mdp"]=$mdp;
+                $_SESSION["role"]=$role[0];
 	}else{
 		$message = "Pseudo ou mot de passe incorrect !"; 
 	}

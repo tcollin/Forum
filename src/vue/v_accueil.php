@@ -4,19 +4,19 @@
     <div class="container">
 
         <?php 
-if (isset($_SESSION["pseudo"])){ ?>
-            <p>Bonjour <strong><?php echo $_SESSION["pseudo"]; ?></strong> !</p>
+        if (isset($_SESSION["pseudo"])){ ?>
+            <p>Bonjour <strong><?php echo $_SESSION["pseudo"]; ?></strong> ! <?php echo $_SESSION["role"]; ?></p>
             <?php }else{
-}
+        }
         
-if (isset($message)){ ?>
+        if (isset($message)){ ?>
                 <div class="alert alert-info">
                     <a href="#" class="close" data-dismiss="alert">&times;</a>
                     <?php echo $message; ?>
                 </div>
                 <?php	
-}
-if (isset($filtre)){ ?>
+        }
+        if (isset($filtre)){ ?>
                     <div class="alert alert-warning">
                         <a href="." class="close" data-dismiss="alert">&times;</a>
                         <?php echo $filtre; ?>
@@ -46,7 +46,7 @@ if (isset($filtre)){ ?>
                                                     <td><b><a href="subject/<?php echo $sujet['sujet_id'] ?>"><?php echo $sujet['sujet_titre'] ?>
                                 </a>
                                 </b>
-                                                        <!-- IF ($login=$loginAdmin)  { }-->
+                                                        <?php if (isset($_SESSION["role"])&&($_SESSION["role"]==1||$_SESSION["role"]==3))  { ?>
                                                         <div class="bouton-admin">
                                                             <a href="#?w=500" rel="resoudre_sujet" class="info poplight">
                                                                 <div class="glyphicon glyphicon-ok-circle"></div><span><b>Résoudre le sujet</b></span>
@@ -55,6 +55,7 @@ if (isset($filtre)){ ?>
                                                                 <div class="glyphicon glyphicon-remove-circle"></div><span><b>Supprimer le sujet</b></span>
                                                             </a>
                                                         </div>
+                                                        <?php }else {} ?>
                                                     </td>
                                                     <td>
                                                         <a href="<?php echo $sujet['categorie_id'] ?>">

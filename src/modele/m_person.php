@@ -5,7 +5,7 @@
 function connexion($pseudo,$mdp) {
 	
     $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
-	$req = $bdd->prepare("SELECT personne_pseudo FROM personne WHERE personne_pseudo = :pseudo AND personne_mdp = :mdp");
+	$req = $bdd->prepare("SELECT personne_pseudo, role_id FROM personne WHERE personne_pseudo = :pseudo AND personne_mdp = :mdp");
     $req->execute (array('pseudo'=>$pseudo, 'mdp'=>$mdp));
 	$user = $req->fetch();
 	return $user;
@@ -26,6 +26,14 @@ function inscription ($pseudo,$mdp,$mail){
         $req2->execute (array('pseudo'=>$pseudo, 'mdp'=>$mdp, 'mail'=>$mail));
     }
     return $res;
+}
+
+function getRole ($pseudo){
+    $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
+    $req = $bdd->prepare ("SELECT role_id FROM personne WHERE personne_pseudo =:pseudo");
+    $req->execute(array('pseudo'=>$pseudo));
+    $role = $req->fetch();
+    return $role;
 }
 
 /**class Person {

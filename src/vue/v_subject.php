@@ -5,7 +5,7 @@
         
         <?php 
 if (isset($_SESSION["pseudo"])){ ?>
-            <p>Bonjour <strong><?php echo $_SESSION["pseudo"]; ?></strong> !</p>
+            <p>Bonjour <strong><?php echo $_SESSION["pseudo"]; ?></strong> ! <?php echo $_SESSION["role"]; ?></p>
             <?php }else{
 }?>
         <a href="../">
@@ -32,11 +32,12 @@ if (isset($_SESSION["pseudo"])){ ?>
                                             <?php echo $post['sujet_titre'];?>
                                                 <br />
                                                 <?php echo $post['personne_pseudo'];?>
-                                                    <!-- IF ($login=$loginAdmin)  { }-->
+                                                    <?php if (isset($_SESSION["role"])&&($_SESSION["role"]==1||$_SESSION["role"]==3))  { ?>
                                                     <a href="#?w=500" rel="bannir_utilisateur" class="info poplight">
                                                         <div class="glyphicon glyphicon-ban-circle"></div><span><b>Bannir l'utilisateur</b></span></a>
+                                                   <?php }?>
                                         </div>
-                                        <!-- IF ($login=$loginAdmin)  { }-->
+                                        <?php if (isset($_SESSION["role"])&&($_SESSION["role"]==1||$_SESSION["role"]==3))  { ?>
                                         <div class="bouton-admin">
                                             <a href="#" class="info" onclick="messageEdit(<?php echo $i ?>)">
                                                 <div class="glyphicon glyphicon-edit"></div><span><b>Modérer le message</b></span>
@@ -45,6 +46,7 @@ if (isset($_SESSION["pseudo"])){ ?>
                                                 <div class="glyphicon glyphicon-remove-circle"></div><span><b>Supprimer le message</b></span>
                                             </a>
                                         </div>
+                                        <?php }?>
                                     </div>
                                 </th>
                             </tr>
