@@ -11,6 +11,7 @@ echo 'La personne 1 est ', $membre->getPseudo(), ' , la personne 2 est ', $admin
 
 $app->get('/', function () { 
     $sujets = getSujets();
+    $categories = getCategories();
     
     session_start ();
     ob_start();
@@ -21,6 +22,7 @@ $app->get('/', function () {
 
 $app->get('/{id}', function ($id) { 
     session_start ();
+    $categories = getCategories();
     $sujets = getSujetsByCategories($id);
     foreach ($sujets as $sujet) {
         $filtre = $sujet['categorie_nom'];
@@ -32,11 +34,11 @@ $app->get('/{id}', function ($id) {
 });
 
 $app->post('/login', function () { 
-        $pseudo = $_POST['pseudo'];
+    $pseudo = $_POST['pseudo'];
 	$mdp = $_POST['mdp'];
 
 	$user = connexion($pseudo,$mdp);
-        $role = getRole($pseudo);
+    $role = getRole($pseudo);
 	//var_dump($user);var_dump($role);
 	if ($user&&$role){
         session_start ();
@@ -47,6 +49,7 @@ $app->post('/login', function () {
 		$message = "Pseudo ou mot de passe incorrect !"; 
 	}
 	$sujets = getSujets();
+    $categories = getCategories();
 	
     ob_start();
     require 'src/vue/v_accueil.php';
@@ -55,9 +58,9 @@ $app->post('/login', function () {
 });
 
 $app->post('/inscription', function () { 
-        session_start ();
+    session_start ();
 	$mail = $_POST['mail'];
-        $pseudo = $_POST['pseudo'];
+    $pseudo = $_POST['pseudo'];
 	$mdp = $_POST['mdp'];
     //var_dump($mail);var_dump($pseudo);var_dump($mdp);
 	$res = inscription($pseudo,$mdp,$mail);
@@ -67,6 +70,7 @@ $app->post('/inscription', function () {
         $message = "Cette adresse email est déjà utilisée. Veuillez recommencer.";
     }
 	$sujets = getSujets();
+    $categories = getCategories();
 	
     ob_start();
     require 'src/vue/v_accueil.php';
@@ -83,6 +87,34 @@ $app->post('/deconnexion', function () {
     
 	$message = "Vous êtes déconnecté.";
 	$sujets = getSujets();
+    $categories = getCategories();
+	
+    ob_start();
+    require 'src/vue/v_accueil.php';
+    $view = ob_get_clean();  
+    return $view;
+});
+
+$app->post('/sujet', function () { 
+    session_start ();
+    
+    $titre = $_POST['titre-sujet'];
+    $idCategorie = $_POST['id-categorie'];
+	$res = addSujet($titre, $idCategorie);
+    
+    $sujets = getSujetByTitle($titre);
+    foreach ($sujets as $sujet) {
+        $idSujet = $sujet['sujet_id'];
+    }
+    $personnes = getPersonneByPseudo($_SESSION['pseudo']);
+    foreach ($personnes as $personne) {
+        $idPersonne = $personne;
+    }
+    $content = $_POST['editor1'];
+    $res = addPost($idPersonne, $idSujet, $content);
+    
+	$sujets = getSujets();
+    $categories = getCategories();
 	
     ob_start();
     require 'src/vue/v_accueil.php';

@@ -31,16 +31,18 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <form class="navbar-form navbar-right">
                         
-                        <?php if (!isset($_SESSION["pseudo"])){
-                        //si pas connecté, affichage bouton connexion et inscription ?>
+                        <?php if (!isset($_SESSION["pseudo"])){ ?>
+                        <!--si pas connecté, affichage bouton connexion et inscription -->
                         <a href="#?w=500" rel="connexion" class="poplight">
                             <button type="submit" class="btn btn-success">Connexion</button>
                         </a>
                         <a href="#?w=500" rel="inscription" class="poplight">
                             <button type="submit" class="btn btn-warning">Pas encore inscrit ?</button>
                         </a>
-                        <?php }  else{ 
-                        //sinon afiche seulement le bouton de connexion?>
+                        <?php } 
+                        else {  ?>
+                            <button type="submit" class="btn btn-profile">Bonjour, <?php echo $_SESSION['pseudo']?><div class="glyphicon glyphicon-user"></div></button>
+                        <!-- sinon afiche seulement le bouton de connexion -->
                             <a href="#?w=500" rel="deconnexion" class="poplight">
                             <button type="submit" class="btn btn-danger">Deconnexion</button>
                         </a>

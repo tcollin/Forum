@@ -28,6 +28,14 @@ function inscription ($pseudo,$mdp,$mail){
     return $res;
 }
 
+function getPersonneByPseudo($pseudo) {
+    $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
+    $req = $bdd->prepare ("SELECT personne_id FROM personne WHERE personne_pseudo =:pseudo");
+    $req->execute(array('pseudo'=>$pseudo));
+    $role = $req->fetch();
+    return $role;
+}
+
 function getRole ($pseudo){
     $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
     $req = $bdd->prepare ("SELECT role_id FROM personne WHERE personne_pseudo =:pseudo");

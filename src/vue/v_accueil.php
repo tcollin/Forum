@@ -74,20 +74,17 @@
                                 <div class="glyphicon glyphicon-plus"></div>
                             </button>
                             <?php } ?>
-                            <form class="form-sujet" id="form-sujet">
+                            <form method="post" class="form-sujet" id="form-sujet" action="sujet">
                                 <label>Titre du sujet :</label>
                                 <input type=text name="titre-sujet" class="titre-sujet" />
                                 <label>Catégorie :</label>
-                                <select>
+                                <select name="id-categorie">
                                     <?php 
-            $nombredecategorie = 10;
-            $i = 1;
-        
-        while ($i<$nombredecategorie) { ?>
-                                        <option value="categorie<?php echo $i; ?>">Catégorie
-                                            <?php echo $i;?>
+                               foreach ($categories as $categorie) { ?>
+                                        <option value=<?php echo $categorie['categorie_id']?>>
+                                            <?php echo $categorie['categorie_nom']?>
                                         </option>
-                                        <?php $i++;
+                                        <?php
                                       } ?>
                                 </select>
                                 <textarea name="editor1" id="editor1" rows="5" cols="80">

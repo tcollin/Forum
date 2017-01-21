@@ -57,11 +57,11 @@ ALTER TABLE POST ADD CONSTRAINT FK_POST_sujet_id FOREIGN KEY (sujet_id) REFERENC
 
 -- insertions
 
-insert into ROLE values (1,'administrateur');
-insert into ROLE values (2,'membre');
-insert into ROLE values (3,'moderateur');
+insert into ROLE values (1,'Administrateur');
+insert into ROLE values (2,'Membre');
+insert into ROLE values (3,'Modérateur');
 
-insert into PERSONNE values (1,'tibo','tibo','tibo@gmail.com',1);
+insert into PERSONNE values (1,'thibaut','thibaut','thibaut@gmail.com',1);
 insert into PERSONNE values (2,'aurore','aurore','aurore@gmail.com',1);
 insert into PERSONNE values (3,'yoann','yoann','yoann@gmail.com',1);
 insert into PERSONNE values (4,'alice','alice','alice@gmail.com',2);
@@ -90,14 +90,14 @@ insert into POST values (1,'2016-04-02 15:28:22',1,'Et enfin la fin de mon monol
 
 insert into POST values (2,'2010-04-02 15:28:22',2,'Bonjour ceci est le premier message de la discussion');
 insert into POST values (2,'2011-04-02 15:29:58',3,'bonjour Aurore, comment ça va ?');
-insert into POST values (2,'2011-04-02 15:29:58',4,'Coucou moi je suis Alice');
+insert into POST values (2,'2011-04-02 15:30:58',4,'Coucou moi je suis Alice');
 insert into POST values (2,'2011-04-05 00:50:12',2,'Bonjour Alice');
 insert into POST values (2,'2017-01-02 07:45:23',4,'A bientôt les ptizamis !');
 
 -- insertion sujet moderation
 
 insert into POST values (3,'2017-01-02 07:45:23',1,'Premier message dans le sujet Moderation');
-insert into POST values (3,'2017-01-02 07:45:23',2,'Il faudrait epingler ce topic');
-insert into POST values (3,'2017-01-02 07:45:23',3,'Je suis tout à fait daccord');
+insert into POST values (3,'2017-01-02 07:48:48',2,'Il faudrait epingler ce topic');
+insert into POST values (3,'2017-01-02 07:50:25',3,'Je suis tout à fait daccord');
 insert into POST values (3,'2017-01-04 11:35:36',1,'le topic a epingler a le rang numero 1');
 insert into POST values (3,'2017-01-07 16:21:56',1,'Et les topics normaux ont un rang numero 2');
