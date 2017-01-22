@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS PERSONNE ;
 DROP TABLE IF EXISTS ROLE ;
 DROP TABLE IF EXISTS CATEGORIE ;
 DROP TABLE IF EXISTS STATUT ;
+DROP TABLE IF EXISTS RANG;
 
 
 -- Rang de l'user (admin, user, etc...)
@@ -36,10 +37,15 @@ PRIMARY KEY (categorie_id) ) ENGINE=InnoDB;
 CREATE TABLE SUJET (
 sujet_id INT  AUTO_INCREMENT NOT NULL,
 sujet_titre VARCHAR(255) NOT NULL,
-sujet_rang INT NOT NULL,
+rang_id INT NOT NULL,
 categorie_id INT NOT NULL,
 statut_id INT,
 PRIMARY KEY (sujet_id) ) ENGINE=InnoDB;
+
+CREATE TABLE RANG(
+rang_id INT AUTO_INCREMENT NOT NULL,
+rang_libelle VARCHAR(30),
+PRIMARY KEY (rang_id) ) ENGINE=InnoDB;
 
 -- Statut du sujet (nul, urgent ou résolu)
 
@@ -62,6 +68,7 @@ PRIMARY KEY (personne_id,post_date,sujet_id) ) ENGINE=InnoDB;
 ALTER TABLE PERSONNE ADD CONSTRAINT FK_PERSONNE_role_id FOREIGN KEY (role_id) REFERENCES ROLE (role_id);
 ALTER TABLE SUJET ADD CONSTRAINT FK_SUJET_categorie_id FOREIGN KEY (categorie_id) REFERENCES CATEGORIE (categorie_id);
 ALTER TABLE SUJET ADD CONSTRAINT FK_SUJET_statut_id FOREIGN KEY (statut_id) REFERENCES STATUT (statut_id);
+ALTER TABLE SUJET ADD CONSTRAINT FK_SUJET_rang_id FOREIGN KEY (rang_id) REFERENCES RANG (rang_id);
 ALTER TABLE POST ADD CONSTRAINT FK_POST_personne_id FOREIGN KEY (personne_id) REFERENCES PERSONNE (personne_id);
 ALTER TABLE POST ADD CONSTRAINT FK_POST_sujet_id FOREIGN KEY (sujet_id) REFERENCES SUJET (sujet_id);
 
@@ -88,6 +95,9 @@ insert into CATEGORIE values (7,'Divers');
 insert into STATUT values(0,'');
 insert into STATUT values(1,'[URGENT]');
 insert into STATUT values(2,'[RESOLU]');
+
+insert into RANG values(1,'épinglé');
+insert into RANG values(2,'par défaut');
 
 insert into SUJET values (1,'Premier sujet MONOLOGUE',2,1,0);
 insert into SUJET values (2,'Second sujet DISCUSSION',2,5,1);
