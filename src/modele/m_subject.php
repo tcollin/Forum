@@ -6,15 +6,31 @@ function addSujet($titre, $idCategorie) {
     $req->execute (array('titre'=>$titre, 'idCategorie'=>$idCategorie));
 }
 
+function deleteSujet($idSujet) {
+    $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
+    $req = $bdd->prepare('DELETE FROM post WHERE sujet_id = :idsujet');
+    $req->execute (array('idsujet'=>$idSujet));
+    $req = $bdd->prepare('DELETE FROM sujet WHERE sujet_id = :idsujet');
+    $req->execute (array('idsujet'=>$idSujet));
+}
+
 function getSujets() {
     $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
     $res = $bdd->query('SELECT * FROM sujet INNER JOIN categorie ON sujet.categorie_id=categorie.categorie_id ORDER BY sujet_id DESC');
     return $res;
 }
 
+function getSujetById($id) {
+    $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
+    $req = $bdd->prepare('SELECT * FROM sujet WHERE sujet_id = :id');
+    $req->execute (array('id'=>$id));
+    $res = $req->fetchAll();
+    return $res;
+}
+
 function getSujetByTitle($titre) {
     $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
-    $req = $bdd->prepare('SELECT * FROM sujet WHERE sujet.sujet_titre = :titre');
+    $req = $bdd->prepare('SELECT * FROM sujet WHERE sujet_titre = :titre');
     $req->execute (array('titre'=>$titre));
     $res = $req->fetchAll();
     return $res;

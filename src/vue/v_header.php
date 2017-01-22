@@ -41,7 +41,7 @@
                         </a>
                         <?php } 
                         else {  ?>
-                            <button type="submit" class="btn btn-profile">Bonjour, <?php echo $_SESSION['pseudo']?><div class="glyphicon glyphicon-user"></div></button>
+                            <button type="submit" class="btn btn-success">Bonjour, <?php echo $_SESSION['pseudo']?> !</button>
                         <!-- sinon afiche seulement le bouton de connexion -->
                             <a href="#?w=500" rel="deconnexion" class="poplight">
                             <button type="submit" class="btn btn-danger">Deconnexion</button>

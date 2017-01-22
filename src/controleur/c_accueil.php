@@ -95,7 +95,7 @@ $app->post('/deconnexion', function () {
     return $view;
 });
 
-$app->post('/sujet', function () { 
+$app->post('/sujet', function () use ($app) { 
     session_start ();
     
     $titre = $_POST['titre-sujet'];
@@ -113,15 +113,27 @@ $app->post('/sujet', function () {
     $content = $_POST['editor1'];
     $res = addPost($idPersonne, $idSujet, $content);
     
-	$sujets = getSujets();
-    $categories = getCategories();
-	
-    ob_start();
-    require 'src/vue/v_accueil.php';
-    $view = ob_get_clean();  
-    return $view;
+	return $app->redirect('/Forum');
 });
 
+$app->get('/delete/{id}', function ($id) use ($app) { 
+    session_start ();
+    deleteSujet($id);
+    
+	return $app->redirect('/Forum');
+});
+
+$app->get('/resolve/{id}', function ($id) use ($app) { 
+    session_start ();
+    $sujets = getSujetbyId($id);
+    foreach ($sujets as $sujet) {
+        $titreSujet = $sujet['sujet_titre'];
+    }
+    $nouveauTitre = "[RESOLU]" + $titreSujet;
+    resolveSujet($id, $titreSujet);
+    
+	return $app->redirect('/Forum');
+});
 
 
 ?>

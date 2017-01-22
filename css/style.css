@@ -28,33 +28,6 @@ html {
 }
 */
 
-.btn-profile {
-    color: #fff;
-    background-color: #5cb85c;
-    border-color: #4cae4c
-}
-
-.btn-success.focus,
-.btn-success:focus {
-    color: #fff;
-    background-color: #5cb85c;
-    border-color: #4cae4c
-}
-
-.btn-success:hover {
-    color: #fff;
-    background-color: #5cb85c;
-    border-color: #4cae4c
-}
-
-.btn-success.active,
-.btn-success:active,
-.open>.dropdown-toggle.btn-success {
-    color: #fff;
-    background-color: #5cb85c;
-    border-color: #4cae4c
-}
-
 .postdate {
     background-color: lightgrey;
 }
