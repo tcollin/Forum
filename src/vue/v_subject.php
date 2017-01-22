@@ -3,11 +3,6 @@
 
     <div class="container">
         
-        <?php 
-if (isset($_SESSION["pseudo"])){ ?>
-            <p>Bonjour <strong><?php echo $_SESSION["pseudo"]; ?></strong> ! <?php echo $_SESSION["role"]; ?></p>
-            <?php }else{
-}?>
         <a href="../">
             <button class="btn btn-success">Retour</button>
         </a>
@@ -18,9 +13,11 @@ if (isset($_SESSION["pseudo"])){ ?>
             <?php 
             $nombredemessage = 5;
             $i = 1;
-        
+            
        /* while ($i<$nombredemessage) {*/ 
-            foreach ($posts as $post) { ?>
+            foreach ($posts as $post) {
+            $user = $post['personne_pseudo'];?>
+            
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -31,13 +28,11 @@ if (isset($_SESSION["pseudo"])){ ?>
                                         <div class="usertext">
                                             <?php echo $post['sujet_titre'];?>
                                                 <br />
-                                                <?php echo $post['personne_pseudo'];?>
-                                                    <?php if (isset($_SESSION["role"])&&($_SESSION["role"]==1||$_SESSION["role"]==3))  { ?>
+                                                <?php echo $post['personne_pseudo']; 
+                                                    if (isset($_SESSION["role"])&&($_SESSION["role"]==1||$_SESSION["role"]==3))  { ?>
                                                     <a href="#?w=500" rel="bannir_utilisateur" class="info poplight">
-                                                        <div class="glyphicon glyphicon-ban-circle"></div><span><b>Bannir l'utilisateur</b></span></a>
-                                                   <?php }?>
+                                                        <div class="glyphicon glyphicon-ban-circle"></div><span><b>Bannir <?php echo $post['personne_pseudo'] ?></b></span></a>
                                         </div>
-                                        <?php if (isset($_SESSION["role"])&&($_SESSION["role"]==1||$_SESSION["role"]==3))  { ?>
                                         <div class="bouton-admin">
                                             <a href="#" class="info" onclick="messageEdit(<?php echo $i ?>)">
                                                 <div class="glyphicon glyphicon-edit"></div><span><b>Modérer le message</b></span>
@@ -86,15 +81,13 @@ if (isset($_SESSION["pseudo"])){ ?>
             <button class="btn btn-success btn-envoyer" id="btn-envoyer" onclick="cacherForm();">Envoyer</button>
         </form>
     </div>
-    </div>
 
     <div id="bannir_utilisateur" class="popup_block">
-        <form>
-            <label>Pour bannir cet utilisateur veuillez renseigner votre mot de passe</label>
-            <input type=text id="mdp" class="bannir-mdp" />
+        <form method='post' action='bannir_user'>
+            <label>Vous allez bannir <?php echo $user; ?></label>
             <hr>
             <div class="btn-popup">
-                <button class="btn btn-danger btn-confirmer" id="btn-bannir">Bannir</button>
+                <button class="btn btn-danger btn-confirmer" id="btn-bannir">Confirmer</button>
             </div>
         </form>
     </div>

@@ -44,6 +44,15 @@ function getRole ($pseudo){
     return $role;
 }
 
+function setRoleBanni($pseudo) {
+	
+    $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
+	$req = $bdd->prepare("UPDATE personne SET role_id = 0 WHERE personne_pseudo =:pseudo");
+    $req->execute (array('pseudo'=>$pseudo));
+	$role = $req->fetch();
+	return $role;
+}
+
 /**class Person {
     private $_pseudo;
     private $_mdp;
