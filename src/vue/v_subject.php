@@ -2,8 +2,8 @@
 <?php include('v_header.php'); ?>
 
     <div class="container">
-        
-        <?php 
+
+        <?php
 if (isset($_SESSION["pseudo"])){ ?>
             <p>Bonjour <strong><?php echo $_SESSION["pseudo"]; ?></strong> ! <?php echo $_SESSION["role"]; ?></p>
             <?php }else{
@@ -15,11 +15,11 @@ if (isset($_SESSION["pseudo"])){ ?>
         <hr>
 
         <main>
-            <?php 
+            <?php
             $nombredemessage = 5;
             $i = 1;
-        
-       /* while ($i<$nombredemessage) {*/ 
+
+       /* while ($i<$nombredemessage) {*/
             foreach ($posts as $post) { ?>
                 <div class="table-responsive">
                     <table class="table table-hover">
@@ -29,9 +29,8 @@ if (isset($_SESSION["pseudo"])){ ?>
                                     <div class="user">
                                         <div class="userimg"></div>
                                         <div class="usertext">
-                                            <?php echo $post['sujet_titre'];?>
-                                                <br />
-                                                <?php echo $post['personne_pseudo'];?>
+                                            <u> <?php echo $post['sujet_titre'];?></u>
+                                                <p id="pseudo"><?php echo $post['personne_pseudo'];?> </p>
                                                     <?php if (isset($_SESSION["role"])&&($_SESSION["role"]==1||$_SESSION["role"]==3))  { ?>
                                                     <a href="#?w=500" rel="bannir_utilisateur" class="info poplight">
                                                         <div class="glyphicon glyphicon-ban-circle"></div><span><b>Bannir l'utilisateur</b></span></a>
@@ -69,8 +68,7 @@ if (isset($_SESSION["pseudo"])){ ?>
                         </tbody>
                     </table>
                 </div>
-                <?php $i++;
-        }?>
+                <?php $i++;}?>
         </main>
         <hr>
         <button class="btn btn-success btn-reponse" id="btn-reponse" onclick="afficherForm();">Répondre

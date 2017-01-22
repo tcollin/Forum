@@ -28,9 +28,7 @@ html {
 }
 */
 
-.postdate {
-    background-color: lightgrey;
-}
+
 
 
 /** MODIFIE LE CHAMP INPUT DU FORM CREER SUJET **/
@@ -166,10 +164,11 @@ img.btn_close {
 }
 
 
-/** CSS du THEAD de la v_subject **/
+/** CSS du POST de la v_subject **/
 
 .header-post {
-    background-color: #DEF8FF;
+  background-color: #0084c2;
+  border-bottom: 3px dotted red;
 }
 
 .user {
@@ -188,9 +187,22 @@ img.btn_close {
 }
 
 .usertext {
-    font-weight: bold;
+  color: white;
 }
 
+.post-head{
+  border-bottom: 1px dotted black;
+}
+
+.table-hover{
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.postdate {
+    background-color: lightgrey;
+    margin-bottom: none;
+}
 
 /** REALISATION DE LA SCROLLBAR SUR LE MAIN **/
 
@@ -5468,16 +5480,16 @@ textarea.input-group-sm>.input-group-btn>.btn {
         -webkit-box-shadow: none;
         box-shadow: none
     }
-    
+
     .navbar-nav .open .dropdown-menu .dropdown-header,
     .navbar-nav .open .dropdown-menu>li>a {
         padding: 5px 15px 5px 25px
     }
-    
+
     .navbar-nav .open .dropdown-menu>li>a {
         line-height: 20px
     }
-    
+
     .navbar-nav .open .dropdown-menu>li>a:focus,
     .navbar-nav .open .dropdown-menu>li>a:hover {
         background-image: none
@@ -5488,11 +5500,11 @@ textarea.input-group-sm>.input-group-btn>.btn {
         float: left;
         margin: 0
     }
-    
+
     .navbar-nav>li {
         float: left
     }
-    
+
     .navbar-nav>li>a {
         padding-top: 15px;
         padding-bottom: 15px
@@ -5515,37 +5527,37 @@ textarea.input-group-sm>.input-group-btn>.btn {
         margin-bottom: 0;
         vertical-align: middle
     }
-    
+
     .navbar-form .form-control {
         display: inline-block;
         width: auto;
         vertical-align: middle
     }
-    
+
     .navbar-form .form-control-static {
         display: inline-block
     }
-    
+
     .navbar-form .input-group {
         display: inline-table;
         vertical-align: middle
     }
-    
+
     .navbar-form .input-group .form-control,
     .navbar-form .input-group .input-group-addon,
     .navbar-form .input-group .input-group-btn {
         width: auto
     }
-    
+
     .navbar-form .input-group>.form-control {
         width: 100%
     }
-    
+
     .navbar-form .control-label {
         margin-bottom: 0;
         vertical-align: middle
     }
-    
+
     .navbar-form .checkbox,
     .navbar-form .radio {
         display: inline-block;
@@ -5553,18 +5565,18 @@ textarea.input-group-sm>.input-group-btn>.btn {
         margin-bottom: 0;
         vertical-align: middle
     }
-    
+
     .navbar-form .checkbox label,
     .navbar-form .radio label {
         padding-left: 0
     }
-    
+
     .navbar-form .checkbox input[type=checkbox],
     .navbar-form .radio input[type=radio] {
         position: relative;
         margin-left: 0
     }
-    
+
     .navbar-form .has-feedback .form-control-feedback {
         top: 0
     }
@@ -5573,7 +5585,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
     .navbar-form .form-group {
         margin-bottom: 5px
     }
-    
+
     .navbar-form .form-group:last-child {
         margin-bottom: 0
     }
@@ -5629,12 +5641,12 @@ textarea.input-group-sm>.input-group-btn>.btn {
     .navbar-left {
         float: left!important
     }
-    
+
     .navbar-right {
         float: right!important;
         margin-right: -15px
     }
-    
+
     .navbar-right~.navbar-right {
         margin-right: 0
     }
@@ -5697,20 +5709,20 @@ textarea.input-group-sm>.input-group-btn>.btn {
     .navbar-default .navbar-nav .open .dropdown-menu>li>a {
         color: #777
     }
-    
+
     .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus,
     .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
         color: #333;
         background-color: transparent
     }
-    
+
     .navbar-default .navbar-nav .open .dropdown-menu>.active>a,
     .navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus,
     .navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover {
         color: #555;
         background-color: #e7e7e7
     }
-    
+
     .navbar-default .navbar-nav .open .dropdown-menu>.disabled>a,
     .navbar-default .navbar-nav .open .dropdown-menu>.disabled>a:focus,
     .navbar-default .navbar-nav .open .dropdown-menu>.disabled>a:hover {
@@ -5793,28 +5805,28 @@ fieldset[disabled] .navbar-default .btn-link:hover {
     .navbar-inverse .navbar-nav .open .dropdown-menu>.dropdown-header {
         border-color: #080808
     }
-    
+
     .navbar-inverse .navbar-nav .open .dropdown-menu .divider {
         background-color: #080808
     }
-    
+
     .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
         color: #9d9d9d
     }
-    
+
     .navbar-inverse .navbar-nav .open .dropdown-menu>li>a:focus,
     .navbar-inverse .navbar-nav .open .dropdown-menu>li>a:hover {
         color: #fff;
         background-color: transparent
     }
-    
+
     .navbar-inverse .navbar-nav .open .dropdown-menu>.active>a,
     .navbar-inverse .navbar-nav .open .dropdown-menu>.active>a:focus,
     .navbar-inverse .navbar-nav .open .dropdown-menu>.active>a:hover {
         color: #fff;
         background-color: #080808
     }
-    
+
     .navbar-inverse .navbar-nav .open .dropdown-menu>.disabled>a,
     .navbar-inverse .navbar-nav .open .dropdown-menu>.disabled>a:focus,
     .navbar-inverse .navbar-nav .open .dropdown-menu>.disabled>a:hover {
