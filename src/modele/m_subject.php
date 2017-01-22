@@ -14,6 +14,12 @@ function deleteSujet($idSujet) {
     $req->execute (array('idsujet'=>$idSujet));
 }
 
+function resolveSujet($titresujet, $idsujet) {
+    $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
+    $req = $bdd->prepare('UPDATE sujet SET sujet_titre = :titresujet WHERE sujet_id = :idsujet');
+    $req->execute (array('idsujet'=>$idSujet));
+}
+
 function getSujets() {
     $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
     $res = $bdd->query('SELECT * FROM sujet INNER JOIN categorie ON sujet.categorie_id=categorie.categorie_id ORDER BY sujet_id DESC');
