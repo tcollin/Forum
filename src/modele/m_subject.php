@@ -14,15 +14,21 @@ function deleteSujet($idSujet) {
     $req->execute (array('idsujet'=>$idSujet));
 }
 
-function resolveSujet($titresujet, $idsujet) {
+function resolveSujet($idSujet) {
     $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
-    $req = $bdd->prepare('UPDATE sujet SET sujet_titre = :titresujet WHERE sujet_id = :idsujet');
-    $req->execute (array('idsujet'=>$idSujet));
+    $req = $bdd->prepare('UPDATE sujet SET statut_id = :idStatut WHERE sujet_id = :idSujet');
+    $req->execute (array('idStatut'=> '2', 'idSujet'=>$idSujet));
+}
+
+function unresolveSujet($idSujet) {
+    $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
+    $req = $bdd->prepare('UPDATE sujet SET statut_id = :idStatut WHERE sujet_id = :idSujet');
+    $req->execute (array('idStatut'=> '0', 'idSujet'=>$idSujet));
 }
 
 function getSujets() {
     $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
-    $res = $bdd->query('SELECT * FROM sujet INNER JOIN categorie ON sujet.categorie_id=categorie.categorie_id ORDER BY sujet_id DESC');
+    $res = $bdd->query('SELECT * FROM sujet INNER JOIN categorie ON sujet.categorie_id=categorie.categorie_id INNER JOIN statut ON statut.statut_id=sujet.statut_id ORDER BY sujet_id DESC');
     return $res;
 }
 
