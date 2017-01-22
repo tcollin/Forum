@@ -75,6 +75,7 @@ ALTER TABLE POST ADD CONSTRAINT FK_POST_sujet_id FOREIGN KEY (sujet_id) REFERENC
 
 -- insertions
 
+insert into ROLE values (0,'Banni');
 insert into ROLE values (1,'Administrateur');
 insert into ROLE values (2,'Membre');
 insert into ROLE values (3,'Modérateur');

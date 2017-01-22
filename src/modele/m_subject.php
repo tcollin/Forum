@@ -2,7 +2,7 @@
 
 function addSujet($titre, $idCategorie) {
     $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
-    $req = $bdd->prepare('INSERT INTO sujet (sujet_titre, sujet_rang, categorie_id) VALUES (:titre, 2, :idCategorie)');
+    $req = $bdd->prepare('INSERT INTO sujet (sujet_titre, rang_id, categorie_id, statut_id) VALUES (:titre, 2, :idCategorie, 0)');
     $req->execute (array('titre'=>$titre, 'idCategorie'=>$idCategorie));
 }
 
