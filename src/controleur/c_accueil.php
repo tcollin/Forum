@@ -20,6 +20,10 @@ $app->get('/', function () {
     return $view;
 });
 
+$app->get('/return', function () use ($app) { 
+    return $app->redirect('/Forum');
+});
+
 $app->get('/{id}', function ($id) { 
     session_start ();
     $categories = getCategories();

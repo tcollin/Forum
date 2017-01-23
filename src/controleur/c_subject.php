@@ -1,4 +1,5 @@
 <?php
+
 $app->get('subject/{id}', function ($id) {
     session_start ();
     $posts = getPosts($id);
@@ -24,4 +25,13 @@ $app->post('subject/deconnexion', function () use ($app) {
     $message = "Vous êtes déconnecté.";
 	
     return $app->redirect('/Forum');
+});
+
+$app->get('subject/{idsujet}/{datepost}', function ($idsujet ,$datepost) use ($app) {
+    session_start ();
+    deletePost($datepost ,$idsujet);
+    
+    $posts = getPosts($idsujet);
+    
+    return $app->redirect('/Forum/subject/'.$idsujet);
 });

@@ -3,7 +3,7 @@
 
 <div class="container">
 
-    <a href="../">
+    <a href="/Forum/return">
         <button class="btn btn-success">Retour</button>
     </a>
 
@@ -37,9 +37,20 @@
                                     <a href="#" class="info" onclick="messageEdit(<?php echo $i ?>)">
                                         <div class="glyphicon glyphicon-edit"></div><span><b>Modérer le message</b></span>
                                     </a>
-                                    <a href="#?w=500" rel="supprimer_message" class="info poplight">
+                                    <a href="#?w=500" rel="supprimer_message_<?php echo $i ?>" class="info poplight">
                                         <div class="glyphicon glyphicon-remove-circle"></div><span><b>Supprimer le message</b></span>
                                     </a>
+                                </div>
+                                <div id="supprimer_message_<?php echo $i ?>" class="popup_block">
+                                        <label>Souhaitez-vous vraiment supprimer ce message ?</label>
+                                        <div class="btn-popup">
+                                            <a href="/subject/<?php echo $post['sujet_id']?>">
+                                                <button class="btn btn-success btn-annuler" id="btn-annuler">Non</button>
+                                            </a>
+                                            <a href="../subject/<?php echo $post['sujet_id']?>/<?php echo $post['post_date']?>">
+                                                <button class="btn btn-success btn-confirmer" id="btn-confirmer">Oui</button>
+                                            </a>
+                                        </div>
                                 </div>
                                 <?php }?>
                             </div>
@@ -88,16 +99,6 @@
         <hr>
         <div class="btn-popup">
             <button class="btn btn-danger btn-confirmer" id="btn-bannir">Confirmer</button>
-        </div>
-    </form>
-</div>
-
-<div id="supprimer_message" class="popup_block">
-    <form>
-        <label>Souhaitez-vous vraiment supprimer ce message ?</label>
-        <div class="btn-popup">
-            <button class="btn btn-success btn-annuler" id="btn-annuler">Non</button>
-            <button class="btn btn-success btn-confirmer" id="btn-confirmer">Oui</button>
         </div>
     </form>
 </div>

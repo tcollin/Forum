@@ -13,4 +13,8 @@ function addPost($idPersonne, $idSujet, $content) {
     $req->execute (array('idSujet'=>$idSujet, 'idPersonne'=>$idPersonne, 'content'=>$content));
 }
 
-
+function deletePost($datePost ,$idSujet) {
+    $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
+    $req = $bdd->prepare('DELETE FROM post WHERE post_date = :datePost AND sujet_id = :idSujet');
+    $req->execute (array('datePost'=>$datePost, 'idSujet'=>$idSujet));
+}
