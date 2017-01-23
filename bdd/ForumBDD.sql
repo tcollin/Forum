@@ -10,58 +10,58 @@ DROP TABLE IF EXISTS RANG;
 -- Rang de l'user (admin, user, etc...)
 
 CREATE TABLE ROLE (
-role_id INT  AUTO_INCREMENT NOT NULL,
-role_libelle VARCHAR(30) NOT NULL,
-PRIMARY KEY (role_id) ) ENGINE=InnoDB;
+    role_id INT  AUTO_INCREMENT NOT NULL,
+    role_libelle VARCHAR(30) NOT NULL,
+    PRIMARY KEY (role_id) ) ENGINE=InnoDB;
 
 
 -- Table des utilisateurs
 
 CREATE TABLE PERSONNE (
-personne_id INT  AUTO_INCREMENT NOT NULL,
-personne_pseudo VARCHAR(30) NOT NULL,
-personne_mdp VARCHAR(16) NOT NULL,
-personne_mail VARCHAR(150) NOT NULL,
-role_id INT NOT NULL,
-PRIMARY KEY (personne_id) ) ENGINE=InnoDB;
+    personne_id INT  AUTO_INCREMENT NOT NULL,
+    personne_pseudo VARCHAR(30) NOT NULL,
+    personne_mdp VARCHAR(16) NOT NULL,
+    personne_mail VARCHAR(150) NOT NULL,
+    role_id INT NOT NULL,
+    PRIMARY KEY (personne_id) ) ENGINE=InnoDB;
 
 -- Categories de sujets
 
 CREATE TABLE CATEGORIE (
-categorie_id INT  AUTO_INCREMENT NOT NULL,
-categorie_nom VARCHAR(50) NOT NULL,
-PRIMARY KEY (categorie_id) ) ENGINE=InnoDB;
+    categorie_id INT  AUTO_INCREMENT NOT NULL,
+    categorie_nom VARCHAR(50) NOT NULL,
+    PRIMARY KEY (categorie_id) ) ENGINE=InnoDB;
 
 -- Sujets des forum crées par les utilisateurs
 
 CREATE TABLE SUJET (
-sujet_id INT  AUTO_INCREMENT NOT NULL,
-sujet_titre VARCHAR(255) NOT NULL,
-rang_id INT NOT NULL,
-categorie_id INT NOT NULL,
-statut_id INT,
-PRIMARY KEY (sujet_id) ) ENGINE=InnoDB;
+    sujet_id INT  AUTO_INCREMENT NOT NULL,
+    sujet_titre VARCHAR(255) NOT NULL,
+    rang_id INT NOT NULL,
+    categorie_id INT NOT NULL,
+    statut_id INT,
+    PRIMARY KEY (sujet_id) ) ENGINE=InnoDB;
 
 CREATE TABLE RANG(
-rang_id INT AUTO_INCREMENT NOT NULL,
-rang_libelle VARCHAR(30),
-PRIMARY KEY (rang_id) ) ENGINE=InnoDB;
+    rang_id INT AUTO_INCREMENT NOT NULL,
+    rang_libelle VARCHAR(30),
+    PRIMARY KEY (rang_id) ) ENGINE=InnoDB;
 
 -- Statut du sujet (nul, urgent ou résolu)
 
 CREATE TABLE STATUT (
-statut_id INT AUTO_INCREMENT NOT NULL,
-statut_libelle VARCHAR(30) NOT NULL,
-PRIMARY KEY (statut_id) ) ENGINE=InnoDB;
+    statut_id INT AUTO_INCREMENT NOT NULL,
+    statut_libelle VARCHAR(30) NOT NULL,
+    PRIMARY KEY (statut_id) ) ENGINE=InnoDB;
 
 -- Table des posts
 
 CREATE TABLE POST (
-sujet_id INT NOT NULL,
-post_date DATETIME NOT NULL,
-personne_id INT NOT NULL,
-post_texte LONGTEXT NOT NULL,
-PRIMARY KEY (personne_id,post_date,sujet_id) ) ENGINE=InnoDB;
+    sujet_id INT NOT NULL,
+    post_date DATETIME NOT NULL,
+    personne_id INT NOT NULL,
+    post_texte LONGTEXT NOT NULL,
+    PRIMARY KEY (personne_id,post_date,sujet_id) ) ENGINE=InnoDB;
 
 -- clés étrangères
 
