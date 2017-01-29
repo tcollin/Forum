@@ -99,18 +99,6 @@ $app->post('/deconnexion', function () {
     return $view;
 });
 
-$app->post('/subject/bannir_user', function () use ($app) { 
-    session_start ();
-    
-    $util = "thibaut";
-    $res = setRoleBanni($util);
-    $message = "Vous avez banni ".$util.".";
-	$sujets = getSujets();
-    $categories = getCategories();
-	
-    return $app->redirect('/Forum');
-});
-
 $app->post('/sujet', function () use ($app) { 
     session_start ();
     

@@ -28,10 +28,16 @@
                                 <div class="usertext">
                                     <?php echo $post['sujet_titre'];?>
                                     <br />
-                                    <?php echo $post['personne_pseudo']; 
-            if (isset($_SESSION["role"])&&($_SESSION["role"]==1||$_SESSION["role"]==3)) { ?>
-                                    <a href="#?w=500" rel="bannir_utilisateur" class="info poplight">
-                                        <div class="glyphicon glyphicon-ban-circle"></div><span><b>Bannir <?php echo $post['personne_pseudo'] ?></b></span></a>
+                                    <?php if ($post['role_id']==0) {
+                                                echo "<i>Utilisateur banni.</i>";
+                                        } 
+                                        else {
+                                                echo $post['personne_pseudo']; ?>
+                                                <a href="#?w=500" rel="bannir_utilisateur_<?php echo $i ?>" class="info poplight">
+                                                <div class="glyphicon glyphicon-ban-circle"></div><span><b>Bannir <?php echo $post['personne_pseudo'] ?></b></span></a>
+                                    <?php
+                                        }         
+                                    if (isset($_SESSION["role"])&&($_SESSION["role"]==1||$_SESSION["role"]==3)) { ?>            
                                 </div>
                                 <div class="bouton-admin">
                                     <a href="#" class="info" onclick="messageEdit(<?php echo $i ?>)">
@@ -42,15 +48,24 @@
                                     </a>
                                 </div>
                                 <div id="supprimer_message_<?php echo $i ?>" class="popup_block">
-                                        <label>Souhaitez-vous vraiment supprimer ce message ?</label>
-                                        <div class="btn-popup">
-                                            <a href="/subject/<?php echo $post['sujet_id']?>">
-                                                <button class="btn btn-success btn-annuler" id="btn-annuler">Non</button>
-                                            </a>
-                                            <a href="../subject/<?php echo $post['sujet_id']?>/<?php echo $post['post_date']?>">
-                                                <button class="btn btn-success btn-confirmer" id="btn-confirmer">Oui</button>
-                                            </a>
-                                        </div>
+                                    <label>Souhaitez-vous vraiment supprimer ce message ?</label>
+                                    <div class="btn-popup">
+                                        <a href="/subject/<?php echo $post['sujet_id']?>">
+                                            <button class="btn btn-success btn-annuler" id="btn-annuler">Non</button>
+                                        </a>
+                                        <a href="../subject/<?php echo $post['sujet_id']?>/<?php echo $post['post_date']?>">
+                                            <button class="btn btn-success btn-confirmer" id="btn-confirmer">Oui</button>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div id="bannir_utilisateur_<?php echo $i ?>" class="popup_block">
+                                    <label>Vous allez bannir <?php echo $user; ?></label>
+                                    <hr>
+                                    <div class="btn-popup">
+                                        <a href="../subject/banuser/<?php echo $post['personne_pseudo']?>/<?php echo $post['sujet_id']?>">
+                                            <button class="btn btn-danger btn-confirmer" id="btn-bannir">Confirmer</button>
+                                        </a>
+                                    </div>
                                 </div>
                                 <?php }?>
                             </div>
@@ -75,14 +90,15 @@
                 </tbody>
             </table>
         </div>
-        <?php $i++;
+        <?php $idsujet = $post['sujet_id'];
+            $i++;
         }?>
     </main>
     <hr>
     <button class="btn btn-success btn-reponse" id="btn-reponse" onclick="afficherForm();">Répondre
         <div class="glyphicon glyphicon-share-alt"></div>
     </button>
-    <form class="form-reponse" id="form-reponse">
+    <form class="form-reponse" method="post" id="form-reponse" action="../subject/addpost/<?php echo $idsujet ?>">
         <textarea name="editor1" id="editor1" rows="5" cols="80">
         </textarea>
         <script>
@@ -91,16 +107,6 @@
         <button class="btn btn-success btn-annuler" id="btn-annuler" onclick="cacherForm();">Annuler</button>
         <button class="btn btn-success btn-envoyer" id="btn-envoyer" onclick="cacherForm();">Envoyer</button>
     </form>
-</div>
-
-<div id="bannir_utilisateur" class="popup_block">
-    <form method='post' action='bannir_user'>
-        <label>Vous allez bannir <?php echo $user; ?></label>
-        <hr>
-        <div class="btn-popup">
-            <button class="btn btn-danger btn-confirmer" id="btn-bannir">Confirmer</button>
-        </div>
-    </form>
-</div>
+</div> 
 
 <?php include('v_footer.php'); ?>
