@@ -28,6 +28,10 @@ border-radius: 4px;
 }
 */
 
+.form-post {
+    display: none;
+}
+
 .postdate {
     background-color: lightgrey;
 }

@@ -40,7 +40,7 @@
                                     if (isset($_SESSION["role"])&&($_SESSION["role"]==1||$_SESSION["role"]==3)) { ?>            
                                 </div>
                                 <div class="bouton-admin">
-                                    <a href="#" class="info" onclick="messageEdit(<?php echo $i ?>)">
+                                    <a href="#" class="info" onclick="afficherFormPost(<?php echo $i ?>);">
                                         <div class="glyphicon glyphicon-edit"></div><span><b>Modérer le message</b></span>
                                     </a>
                                     <a href="#?w=500" rel="supprimer_message_<?php echo $i ?>" class="info poplight">
@@ -75,6 +75,10 @@
                 <tbody>
                     <tr>
                         <td>
+                           <form name='form-post' id='form-post-<?php echo $i ?>' class='form-post' method="post" action="../subject/moderate/<?php echo $post['sujet_id']?>/<?php echo $post['post_date']?>">
+                               <textarea name='content' rows=5 style="width:100%"><?php echo $post['post_texte']; ?></textarea>
+                               <button>Ok</button>
+                           </form>
                             <p id="message<?php echo $i ?>">
                                 <?php echo $post['post_texte']; ?>
                             </p>

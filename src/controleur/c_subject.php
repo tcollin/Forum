@@ -58,3 +58,12 @@ $app->get('/subject/banuser/{pseudo}/{idsujet}', function ($pseudo, $idsujet) us
 	
     return $app->redirect('/Forum/subject/'.$idsujet);
 });
+
+$app->post('subject/moderate/{idsujet}/{datepost}', function ($idsujet ,$datepost) use ($app) {
+    session_start ();
+    
+    $content=$_POST['content'];
+    updatePost($datepost ,$idsujet, $content);
+    
+    return $app->redirect('/Forum/subject/'.$idsujet);
+});

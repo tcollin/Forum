@@ -72,9 +72,13 @@ $(document).ready(function () {
     });
 })
 
-function messageEdit(i) {
-    var id = "message" + i;
-    var textarea = document.getElementById(id);
-    var content = textarea.innerText || textarea.textContent;
-    textarea.innerHTML = '<textarea id=' + id + ' rows=5 style="width:100%">' + content + '</textarea>';
+
+function afficherFormPost(i) {
+    var form = document.getElementById('form-post-'+ i);
+    if (form.style.display == 'none') {
+        form.style.display = 'block';
+    }
+    else {
+        form.style.display = 'none';
+    }
 }

@@ -18,3 +18,9 @@ function deletePost($datePost ,$idSujet) {
     $req = $bdd->prepare('DELETE FROM post WHERE post_date = :datePost AND sujet_id = :idSujet');
     $req->execute (array('datePost'=>$datePost, 'idSujet'=>$idSujet));
 }
+
+function updatePost($datePost, $idSujet, $content) {
+    $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
+    $req = $bdd->prepare('UPDATE post SET post_texte = :content WHERE post_date = :datePost AND sujet_id = :idSujet');
+    $req->execute (array('content'=>$content ,'datePost'=>$datePost, 'idSujet'=>$idSujet));
+}
