@@ -32,10 +32,12 @@
                                                 echo "<i>Utilisateur banni.</i>";
                                         } 
                                         else {
-                                                echo $post['personne_pseudo']; ?>
+                                                echo $post['personne_pseudo']; 
+                                                if (isset($_SESSION["role"])&&($_SESSION["role"]==1||$_SESSION["role"]==3)) { ?>
                                                 <a href="#?w=500" rel="bannir_utilisateur_<?php echo $i ?>" class="info poplight">
                                                 <div class="glyphicon glyphicon-ban-circle"></div><span><b>Bannir <?php echo $post['personne_pseudo'] ?></b></span></a>
                                     <?php
+                                            }
                                         }         
                                     if (isset($_SESSION["role"])&&($_SESSION["role"]==1||$_SESSION["role"]==3)) { ?>            
                                 </div>
@@ -75,7 +77,7 @@
                 <tbody>
                     <tr>
                         <td>
-                           <form name='form-post' id='form-post-<?php echo $i ?>' class='form-post' method="post" action="../subject/moderate/<?php echo $post['sujet_id']?>/<?php echo $post['post_date']?>">
+                           <form name='form-post' id='form-post-<?php echo $i ?>' class='hideformpost' method="post" action="../subject/moderate/<?php echo $post['sujet_id']?>/<?php echo $post['post_date']?>">
                                <textarea name='content' rows=5 style="width:100%"><?php echo $post['post_texte']; ?></textarea>
                                <button>Ok</button>
                            </form>
