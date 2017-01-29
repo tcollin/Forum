@@ -4,6 +4,7 @@ $app->get('subject/{id}', function ($id) {
     session_start ();
     $posts = getPosts($id);
     
+    
     ob_start();
     require 'src/vue/v_subject.php';
     $view = ob_get_clean();
@@ -33,5 +34,27 @@ $app->get('subject/{idsujet}/{datepost}', function ($idsujet ,$datepost) use ($a
     
     $posts = getPosts($idsujet);
     
+    return $app->redirect('/Forum/subject/'.$idsujet);
+});
+
+$app->post('subject/addpost/{idsujet}', function ($idsujet) use ($app) { 
+    session_start ();
+    
+    $personnes = getPersonneByPseudo($_SESSION['pseudo']);
+    foreach ($personnes as $personne) {
+        $idpersonne = $personne;
+    }
+    
+    $content = $_POST['editor1'];
+    $res = addPost($idpersonne, $idsujet, $content);
+    
+    return $app->redirect('/Forum/subject/'.$idsujet);
+});
+
+$app->get('/subject/banuser/{pseudo}/{idsujet}', function ($pseudo, $idsujet) use ($app) { 
+    session_start ();
+    
+    $res = setRoleBan($pseudo);
+	
     return $app->redirect('/Forum/subject/'.$idsujet);
 });

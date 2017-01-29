@@ -97,8 +97,8 @@ insert into STATUT values(0,'');
 insert into STATUT values(1,'[URGENT]');
 insert into STATUT values(2,'[RESOLU]');
 
-insert into RANG values(1,'épinglé');
-insert into RANG values(2,'par défaut');
+insert into RANG values(1,'Epinglé');
+insert into RANG values(2,'Par défaut');
 
 insert into SUJET values (1,'Premier sujet MONOLOGUE',2,1,0);
 insert into SUJET values (2,'Second sujet DISCUSSION',2,5,1);
