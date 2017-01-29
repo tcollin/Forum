@@ -14,8 +14,8 @@ function inscription ($pseudo,$mdp,$mail){
     $res = false; //user pas encore crée
 
     $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
-    $req1 = $bdd->prepare ("SELECT personne_mail FROM personne WHERE personne_mail =:mail");
-    $req1->execute(array('mail'=>$mail));
+    $req1 = $bdd->prepare ("SELECT personne_mail, personne_pseudo FROM personne WHERE personne_mail =:mail OR personne_pseudo=:pseudo");
+    $req1->execute(array('mail'=>$mail, 'pseudo'=>$pseudo));
     $user = $req1->fetch();
 
     if ($user) {
