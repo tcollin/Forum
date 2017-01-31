@@ -1,9 +1,7 @@
 <?php
-
 $app->get('subject/{id}', function ($id) {
     session_start ();
     $posts = getPosts($id);
-    
     
     ob_start();
     require 'src/vue/v_subject.php';
@@ -26,35 +24,4 @@ $app->post('subject/deconnexion', function () use ($app) {
     $message = "Vous êtes déconnecté.";
 	
     return $app->redirect('/Forum');
-});
-
-$app->get('subject/{idsujet}/{datepost}', function ($idsujet ,$datepost) use ($app) {
-    session_start ();
-    deletePost($datepost ,$idsujet);
-    
-    $posts = getPosts($idsujet);
-    
-    return $app->redirect('/Forum/subject/'.$idsujet);
-});
-
-$app->post('subject/addpost/{idsujet}', function ($idsujet) use ($app) { 
-    session_start ();
-    
-    $personnes = getPersonneByPseudo($_SESSION['pseudo']);
-    foreach ($personnes as $personne) {
-        $idpersonne = $personne;
-    }
-    
-    $content = $_POST['editor1'];
-    $res = addPost($idpersonne, $idsujet, $content);
-    
-    return $app->redirect('/Forum/subject/'.$idsujet);
-});
-
-$app->get('/subject/banuser/{pseudo}/{idsujet}', function ($pseudo, $idsujet) use ($app) { 
-    session_start ();
-    
-    $res = setRoleBan($pseudo);
-	
-    return $app->redirect('/Forum/subject/'.$idsujet);
 });

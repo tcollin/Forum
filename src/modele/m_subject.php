@@ -14,21 +14,9 @@ function deleteSujet($idSujet) {
     $req->execute (array('idsujet'=>$idSujet));
 }
 
-function resolveSujet($idSujet) {
-    $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
-    $req = $bdd->prepare('UPDATE sujet SET statut_id = :idStatut WHERE sujet_id = :idSujet');
-    $req->execute (array('idStatut'=> '2', 'idSujet'=>$idSujet));
-}
-
-function unresolveSujet($idSujet) {
-    $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
-    $req = $bdd->prepare('UPDATE sujet SET statut_id = :idStatut WHERE sujet_id = :idSujet');
-    $req->execute (array('idStatut'=> '0', 'idSujet'=>$idSujet));
-}
-
 function getSujets() {
     $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
-    $res = $bdd->query('SELECT * FROM sujet INNER JOIN categorie ON sujet.categorie_id=categorie.categorie_id INNER JOIN statut ON statut.statut_id=sujet.statut_id ORDER BY sujet_id DESC');
+    $res = $bdd->query('SELECT * FROM sujet INNER JOIN categorie ON sujet.categorie_id=categorie.categorie_id ORDER BY sujet_id DESC');
     return $res;
 }
 
@@ -63,3 +51,16 @@ function getCategories() {
     return $res;
 }
 
+function getPosts($id) {
+    $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
+    $req = $bdd->prepare('SELECT * FROM post INNER JOIN personne ON personne.personne_id=post.personne_id INNER JOIN sujet ON sujet.sujet_id=post.sujet_id WHERE post.sujet_id = :id ORDER BY post_date');
+    $req->execute (array('id'=>$id));
+    $res = $req->fetchAll();
+    return $res;
+}
+
+function addPost($idPersonne, $idSujet, $content) {
+    $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
+    $req = $bdd->prepare('INSERT INTO post VALUES (:idSujet, NOW(), :idPersonne, :content)');
+    $req->execute (array('idSujet'=>$idSujet, 'idPersonne'=>$idPersonne, 'content'=>$content));
+}

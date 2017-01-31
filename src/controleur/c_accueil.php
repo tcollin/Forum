@@ -20,10 +20,6 @@ $app->get('/', function () {
     return $view;
 });
 
-$app->get('/return', function () use ($app) { 
-    return $app->redirect('/Forum');
-});
-
 $app->get('/{id}', function ($id) { 
     session_start ();
     $categories = getCategories();
@@ -129,14 +125,14 @@ $app->get('/delete/{id}', function ($id) use ($app) {
 	return $app->redirect('/Forum');
 });
 
-$app->post('/resolve/{id}', function ($id) use ($app) { 
+$app->get('/resolve/{id}', function ($id) use ($app) { 
     session_start ();
-    if ($_POST['resoudre']=="Oui"){
-        resolveSujet($id);
+    $sujets = getSujetbyId($id);
+    foreach ($sujets as $sujet) {
+        $titreSujet = $sujet['sujet_titre'];
     }
-    else {
-        unresolveSujet($id);
-    }
+    $nouveauTitre = "[RESOLU]" + $titreSujet;
+    resolveSujet($id, $titreSujet);
     
 	return $app->redirect('/Forum');
 });

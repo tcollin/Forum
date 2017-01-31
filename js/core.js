@@ -39,8 +39,8 @@ $(document).ready(function () {
 
         //Faire apparaitre la pop-up et ajouter le bouton de fermeture
         $('#' + popID).fadeIn().css({
-            'width': Number(popWidth)
-        })
+                'width': Number(popWidth)
+            })
             .prepend('<a href="#" class="fermer"><img src="/Forum/img/close_pop.png" class="btn_close" title="Fermer" alt="Fermer" /></a>');
 
         //Récupération du margin, qui permettra de centrer la fenêtre - on ajuste de 80px en conformité avec le CSS
