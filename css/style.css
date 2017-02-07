@@ -1,8 +1,8 @@
 /*!
-* Bootstrap v3.3.7 (http://getbootstrap.com)
-* Copyright 2011-2016 Twitter, Inc.
-* Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-*/
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
 
 
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -19,15 +19,35 @@ html {
     -ms-text-size-adjust: 100%
 }
 
+/* FORMULAIRES */
+label {
+    display: block;
+}
+
+input.error {
+    border: 1px solid red;
+}
+
+label.error {
+    font-weight: normal;
+    color: red;
+}
+
+button {
+    display: block;
+    margin-top: 20px;
+}
+
 
 /*.filtre {
-padding: 15px;
-margin-bottom: 20px;
-border: 1px solid transparent;
-border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
 }
 */
 
+<<<<<<< HEAD
 .hideformpost {
     display: none;
 }
@@ -35,6 +55,9 @@ border-radius: 4px;
 .postdate {
     background-color: lightgrey;
 }
+=======
+
+>>>>>>> origin/master
 
 
 /** MODIFIE LE CHAMP INPUT DU FORM CREER SUJET **/
@@ -170,10 +193,11 @@ img.btn_close {
 }
 
 
-/** CSS du THEAD de la v_subject **/
+/** CSS du POST de la v_subject **/
 
 .header-post {
-    background-color: #DEF8FF;
+  background-color: #0084c2;
+  border-bottom: 3px dotted red;
 }
 
 .user {
@@ -192,9 +216,22 @@ img.btn_close {
 }
 
 .usertext {
-    font-weight: bold;
+  color: white;
 }
 
+.post-head{
+  border-bottom: 1px dotted black;
+}
+
+.table-hover{
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.postdate {
+    background-color: lightgrey;
+    margin-bottom: none;
+}
 
 /** REALISATION DE LA SCROLLBAR SUR LE MAIN **/
 
@@ -629,7 +666,7 @@ th {
 
 .glyphicon-user:before {
     content: "\e008";
-    color : #fff;
+        color : #fff;
 }
 
 .glyphicon-film:before {

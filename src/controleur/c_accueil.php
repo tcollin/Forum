@@ -20,10 +20,6 @@ $app->get('/', function () {
     return $view;
 });
 
-$app->get('/return', function () use ($app) { 
-    return $app->redirect('/Forum');
-});
-
 $app->get('/{id}', function ($id) { 
     session_start ();
     $categories = getCategories();
@@ -43,13 +39,15 @@ $app->post('/login', function () {
 
 	$user = connexion($pseudo,$mdp);
     $role = getRole($pseudo);
-	//var_dump($user);var_dump($role);
-	if ($user&&$role){
+	//var_dump($user);var_dump($role[0]);
+    if ($user&&$role[0]!=0){
         session_start ();
 		$_SESSION["pseudo"]=$pseudo;
 		$_SESSION["mdp"]=$mdp;
-                $_SESSION["role"]=$role[0];
-	}else{
+        $_SESSION["role"]=$role[0];
+	}else if ($user&&$role[0]==0){
+        $message = "Vous avez été bannis de ce site, vous ne pouvez donc plus vous y connecter."; 
+    }else{
 		$message = "Pseudo ou mot de passe incorrect !"; 
 	}
 	$sujets = getSujets();
@@ -71,7 +69,7 @@ $app->post('/inscription', function () {
     if ($res==false){
 	   $message = "Vous êtes inscrits ! Vous pouvez maintenant vous connecter.";
     }else{
-        $message = "Cette adresse email est déjà utilisée. Veuillez recommencer.";
+        $message = "Cette adresse email ou ce pseudo est déjà est déjà utilisé. Veuillez recommencer.";
     }
 	$sujets = getSujets();
     $categories = getCategories();
@@ -127,14 +125,14 @@ $app->get('/delete/{id}', function ($id) use ($app) {
 	return $app->redirect('/Forum');
 });
 
-$app->post('/resolve/{id}', function ($id) use ($app) { 
+$app->get('/resolve/{id}', function ($id) use ($app) { 
     session_start ();
-    if ($_POST['resoudre']=="Oui"){
-        resolveSujet($id);
+    $sujets = getSujetbyId($id);
+    foreach ($sujets as $sujet) {
+        $titreSujet = $sujet['sujet_titre'];
     }
-    else {
-        unresolveSujet($id);
-    }
+    $nouveauTitre = "[RESOLU]" + $titreSujet;
+    resolveSujet($id, $titreSujet);
     
 	return $app->redirect('/Forum');
 });

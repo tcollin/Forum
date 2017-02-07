@@ -39,39 +39,28 @@
                     <?php 
                     foreach ($sujets as $sujet) { ?>
                     <tr>
-                        <td><b><a href="subject/<?php echo $sujet['sujet_id'] ?>"><?php echo $sujet['statut_libelle'].$sujet['sujet_titre'] ?>
+                        <td><b><a href="subject/<?php echo $sujet['sujet_id'] ?>"><?php echo $sujet['sujet_titre'] ?>
                             </a>
                             </b>
                             <?php if (isset($_SESSION["role"])&&($_SESSION["role"]==1||$_SESSION["role"]==3))  { ?>
                             <div class="bouton-admin">
-                                <a href="#?w=500" rel="resoudre_sujet_<?php echo $sujet['sujet_id'] ?>" class="info poplight">
+                                <a href="#?w=500" rel="resoudre_sujet" class="info poplight">
                                     <div class="glyphicon glyphicon-ok-circle"></div><span><b>Résoudre le sujet</b></span>
                                 </a>
-                                <a href="#?w=500" rel="supprimer_sujet_<?php echo $sujet['sujet_id'] ?>" class="info poplight">
+                                <a href="#?w=500" rel="supprimer_sujet" class="info poplight">
                                     <div class="glyphicon glyphicon-remove-circle"></div><span><b>Supprimer le sujet</b></span>
                                 </a>
                             </div>
-                            <div id="supprimer_sujet_<?php echo $sujet['sujet_id'] ?>" class="popup_block">
-                                <label>Souhaitez-vous vraiment supprimer ce sujet ?</label>
-                                <div class="btn-popup">
-                                    <a href="/Forum/" class="info poplight">
-                                        <button class="btn btn-success btn-annuler" id="btn-annuler">Non</button>
-                                    </a>
-                                    <a href="delete/<?php echo $sujet['sujet_id']?>">
-                                        <button class="btn btn-danger btn-confirmer" id="btn-confirmer">Oui</button>
-                                    </a>
-                                </div>
-                            </div>
-                            <div id="resoudre_sujet_<?php echo $sujet['sujet_id'] ?>" class="popup_block">
-                                <form method="post" action="resolve/<?php echo $sujet['sujet_id']?>">
-                                    <label>Ce sujet est-il résolu ?</label>
-                                    <br />
-                                    <input type="radio" name="resoudre" value="Oui"> Oui
-                                    <input type="radio" class="radio-resoudre" name="resoudre" value="Non" checked> Non
+                            <div id="supprimer_sujet" class="popup_block">
+                                    <label>Souhaitez-vous vraiment supprimer ce sujet ?</label>
                                     <div class="btn-popup">
-                                        <button class="btn btn-success btn-confirmer" id="btn-confirmer">Confirmer</button>
+                                       <a href="/Forum/" class="info poplight">
+                                        <button class="btn btn-success btn-annuler" id="btn-annuler">Non</button>
+                                        </a>
+                                        <a href="delete/<?php echo $sujet['sujet_id']?>">
+                                            <button class="btn btn-danger btn-confirmer" id="btn-confirmer">Oui</button>
+                                        </a>
                                     </div>
-                                </form>
                             </div>
                             <?php } ?>
                         </td>
@@ -114,6 +103,18 @@
         <button class="btn btn-success btn-envoyer" id="btn-envoyer" onclick="cacherFormSujet();">Créer</button>
     </form>
 </div>
+</div>
+
+<div id="resoudre_sujet" class="popup_block">
+    <form>
+        <label>Ce sujet est-il résolu ?</label>
+        <br />
+        <input type="radio" name="resoudre" value="Oui"> Oui
+        <input type="radio" class="radio-resoudre" name="resoudre" value="Non" checked> Non
+        <div class="btn-popup">
+            <button class="btn btn-success btn-confirmer" id="btn-confirmer">Confirmer</button>
+        </div>
+    </form>
 </div>
 
 

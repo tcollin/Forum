@@ -146,6 +146,7 @@ Affichage des posts  …
 - Affichage des posts avec la méthode getPosts (cf fonctionnement de
 getSujet)
 
+<<<<<<< HEAD
 MàJ CSS et affichage date du post  …
 - Il va falloir un CSS un peu mieux pour les posts donc à faire
 
@@ -270,3 +271,5 @@ pattern pour inscription correcte
 Merge remote-tracking branch 'origin/master'  …
 # Conflicts:
 #	src/vue/v_header.php
+=======
+>>>>>>> origin/master
