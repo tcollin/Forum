@@ -1,7 +1,9 @@
 <?php
+
 $app->get('subject/{id}', function ($id) {
     session_start ();
     $posts = getPosts($id);
+    
     
     ob_start();
     require 'src/vue/v_subject.php';
@@ -24,7 +26,6 @@ $app->post('subject/deconnexion', function () use ($app) {
     $message = "Vous êtes déconnecté.";
 	
     return $app->redirect('/Forum');
-<<<<<<< HEAD
 });
 
 $app->get('subject/{idsujet}/{datepost}', function ($idsujet ,$datepost) use ($app) {
@@ -66,6 +67,3 @@ $app->post('subject/moderate/{idsujet}/{datepost}', function ($idsujet ,$datepos
     
     return $app->redirect('/Forum/subject/'.$idsujet);
 });
-=======
-});
->>>>>>> origin/master
