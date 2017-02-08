@@ -224,3 +224,60 @@ il revient à null
 javascript différent à chaque tour de boucle car sinon nous ne pouvons
 résoudre ou supprimer que le dernier sujet car le javascript s'éxecute
 coté client donc apres l'html
+
+début pour bannir l'utilisateur  …
+Requête pour mettre à 0 le role_id
+pb avec recup du bon utilisateur à bannir
+
+Indentation du code et MàJ Read.me
+
+Suppression des posts  …
+- c_accueil : ajout d'une route qui redirige vers "/" pour le bouton
+retour d'un sujet
+- c_subject : création de la route pour supprimer un post
+- m_post : j'ai ajouté une page de fonction post pour différencier les
+fonctions lier à un sujet et à un post et j'ai créer la fonction
+permettant de supprimer un post (à améliorer car on ne prend pas en
+compte l'utilisateur qui a posté en paramètre)
+- v_subject : affectation du formulaire de suppression dans la boucle
+pour que un formulaire correspondent à un post
+
+Ban de l'utilisateur et ajout de post  …
+- ForumBDD : majuscules dans les libelles de la table rang
+- c_accueil : j'ai mis la route du ban user dans le c_subject
+- c_subject : ajout des routes pour addbost et banuser avec des
+redirection a chaque fois vers le sujet
+- m_person :  j'ai juste changer le nom de la fonction
+- v_subject : affichage changé (j'ai banni l'utilisateur yoann)
+maintenant on affiche utilisateur banni quand le rôle est à 0 mais on
+laisse les messages et rajout du formulaire dans la boucle pour associer
+un fomrulaire par post
+
+Modif connexion  …
+Si role_id=0, message informant l'utilisateur qu'il a été bannis
+Si pseudo existe dans la base, pas inscription, idem pour email
+	
+Merge branch 'master' of https://github.com/tcollin/Forum
+
+m_post
+
+Merge branch 'master' of https://github.com/tcollin/Forum
+
+Modérer message  …
+- BUG obliger de double clic sur l'icône modérer pour afficher le form
+mais tout marche sinon
+- style : Form en display none
+- core : gère l'affichage du formulaire
+- c_subject : ajout de la route de modération
+- m_post : fonction update
+- v_subject : ajout du formulaire de modération post
+
+Résolution bug css form post  …
+- Il yavait un bug sur la class du form-post il ne cachait pas le
+formulaire grace au css j'ai changé le nom de la class et apparement ça
+a résolu le bug
+
+regex inscription  …
+pattern pour inscription correcte
+
+MàJ Read me
