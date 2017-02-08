@@ -56,7 +56,7 @@ function getSujetByTitle($titre) {
 
 function getSujetsByCategories($id) {
     $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
-    $req = $bdd->prepare('SELECT * FROM sujet INNER JOIN categorie ON sujet.categorie_id=categorie.categorie_id WHERE sujet.categorie_id = :id ORDER BY sujet_id DESC');
+    $req = $bdd->prepare('SELECT * FROM sujet INNER JOIN statut ON statut.statut_id=sujet.statut_id INNER JOIN categorie ON sujet.categorie_id=categorie.categorie_id WHERE sujet.categorie_id = :id ORDER BY sujet_id DESC');
     $req->execute (array('id'=>$id));
     $res = $req->fetchAll();
     return $res;

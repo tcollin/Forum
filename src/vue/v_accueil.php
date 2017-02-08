@@ -39,7 +39,7 @@
                     <?php
                     foreach ($sujets as $sujet) { ?>
                     <tr>
-                        <td><b><a href="subject/<?php echo $sujet['sujet_id'] ?>"><?php echo $sujet['categorie_nom']." - ".$sujet['sujet_titre']?></a></b>
+                        <td><b><a href="subject/<?php echo $sujet['sujet_id'] ?>"><?php echo $sujet['statut_libelle'].$sujet['sujet_titre']?></a></b>
                             <?php if (isset($_SESSION["role"])&&($_SESSION["role"]==1||$_SESSION["role"]==3))  { ?>
                             <div class="bouton-admin">
                                 <a href="#?w=500" rel="resoudre_sujet_<?php echo $sujet['sujet_id'] ?>" class="info poplight">
