@@ -3,21 +3,21 @@
 
 <div class="container">
 
-    <?php 
+    <?php
 
     if (isset($message)){ ?>
     <div class="alert alert-info">
         <a href="#" class="close" data-dismiss="alert">&times;</a>
         <?php echo $message; ?>
     </div>
-    <?php	
+    <?php
                         }
     if (isset($filtre)){ ?>
     <div class="alert alert-warning">
         <a href="." class="close" data-dismiss="alert">&times;</a>
         <?php echo $filtre; ?>
     </div>
-    <?php	
+    <?php
                        }
     else { ?>
     <div class="title">Bienvenue sur le forum !</div>
@@ -36,12 +36,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php 
+                    <?php
                     foreach ($sujets as $sujet) { ?>
                     <tr>
-                        <td><b><a href="subject/<?php echo $sujet['sujet_id'] ?>"><?php echo $sujet['statut_libelle'].$sujet['sujet_titre'] ?>
-                            </a>
-                            </b>
+                        <td><b><a href="subject/<?php echo $sujet['sujet_id'] ?>"><?php echo $sujet['categorie_nom']." - ".$sujet['sujet_titre']?></a></b>
                             <?php if (isset($_SESSION["role"])&&($_SESSION["role"]==1||$_SESSION["role"]==3))  { ?>
                             <div class="bouton-admin">
                                 <a href="#?w=500" rel="resoudre_sujet_<?php echo $sujet['sujet_id'] ?>" class="info poplight">
@@ -55,10 +53,10 @@
                                 <label>Souhaitez-vous vraiment supprimer ce sujet ?</label>
                                 <div class="btn-popup">
                                     <a href="/Forum/" class="info poplight">
-                                        <button class="btn btn-success btn-annuler" id="btn-annuler">Non</button>
+                                        <button class="btn btn-success btn-annuler" id="btn-annuler">Oui</button>
                                     </a>
                                     <a href="delete/<?php echo $sujet['sujet_id']?>">
-                                        <button class="btn btn-danger btn-confirmer" id="btn-confirmer">Oui</button>
+                                        <button class="btn btn-danger btn-confirmer" id="btn-confirmer">Non</button>
                                     </a>
                                 </div>
                             </div>
@@ -87,17 +85,27 @@
         </div>
     </main>
     <hr>
-    <?php if (isset($_SESSION["pseudo"])){ //si visiteur n'est pas connecté, il ne peut pas créer un nouveau sujet ?> 
+
+    <?php if (isset($_SESSION["pseudo"])){ //si visiteur n'est pas connecté, il ne peut pas créer un nouveau sujet ?>
     <button class="btn btn-success btn-sujet" id="btn-sujet" onclick="afficherFormSujet();">Nouveau sujet
         <div class="glyphicon glyphicon-plus"></div>
     </button>
+    <?php }  if (isset($_SESSION["pseudo"])&&$_SESSION["role"]==1) { //si visiteur n'est pas connecté et pas admin, il ne peut pas créer une nouvelle catégorie ?>
+    <form method="post" action="categorie" class="form-categorie">
+        <input type="text" name="newCat" placeholder="Informatique, Matériel, Web ..." size="45"/>
+        <button class="btn btn-info" >Ajout catégorie
+            <div class="glyphicon glyphicon-plus"></div>
+        </button>
+      </form>
     <?php } ?>
+
+
     <form method="post" class="form-sujet" id="form-sujet" action="sujet">
         <label>Titre du sujet :</label>
         <input type=text name="titre-sujet" class="titre-sujet" />
         <label>Catégorie :</label>
         <select name="id-categorie">
-            <?php 
+            <?php
             foreach ($categories as $categorie) { ?>
             <option value=<?php echo $categorie['categorie_id']?>>
                 <?php echo $categorie['categorie_nom']?>

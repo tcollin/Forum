@@ -10,11 +10,11 @@
     <hr>
 
     <main>
-        <?php 
+        <?php
         $nombredemessage = 5;
         $i = 1;
 
-        /* while ($i<$nombredemessage) {*/ 
+        /* while ($i<$nombredemessage) {*/
         foreach ($posts as $post) {
             $user = $post['personne_pseudo'];?>
 
@@ -29,17 +29,17 @@
                                     <?php echo $post['sujet_titre'];?>
                                     <br />
                                     <?php if ($post['role_id']==0) {
-                                                echo "<i>Utilisateur banni.</i>";
-                                        } 
+                                                echo $post['personne_pseudo']." <i> Utilisateur banni.</i>";
+                                        }
                                         else {
-                                                echo $post['personne_pseudo']; 
-                                                if (isset($_SESSION["role"])&&($_SESSION["role"]==1||$_SESSION["role"]==3)) { ?>
+                                                echo $post['personne_pseudo'];
+                                                if (isset($_SESSION["role"])&&($_SESSION["role"]==1||$_SESSION["role"]==3)&&$post['role_id']!=1) { ?>
                                                 <a href="#?w=500" rel="bannir_utilisateur_<?php echo $i ?>" class="info poplight">
                                                 <div class="glyphicon glyphicon-ban-circle"></div><span><b>Bannir <?php echo $post['personne_pseudo'] ?></b></span></a>
                                     <?php
                                             }
-                                        }         
-                                    if (isset($_SESSION["role"])&&($_SESSION["role"]==1||$_SESSION["role"]==3)) { ?>            
+                                        }
+                                    if (isset($_SESSION["role"])&&($_SESSION["role"]==1||$_SESSION["role"]==3)) { ?>
                                 </div>
                                 <div class="bouton-admin">
                                     <a href="#" class="info" onclick="afficherFormPost(<?php echo $i ?>);">
@@ -113,6 +113,6 @@
         <button class="btn btn-success btn-annuler" id="btn-annuler" onclick="cacherForm();">Annuler</button>
         <button class="btn btn-success btn-envoyer" id="btn-envoyer" onclick="cacherForm();">Envoyer</button>
     </form>
-</div> 
+</div>
 
 <?php include('v_footer.php'); ?>

@@ -6,6 +6,12 @@ function addSujet($titre, $idCategorie) {
     $req->execute (array('titre'=>$titre, 'idCategorie'=>$idCategorie));
 }
 
+function addCategorie($categorie) {
+    $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
+    $req = $bdd->prepare('INSERT INTO categorie (categorie_nom) VALUES (:cat)');
+    $req->execute (array('cat'=>$categorie));
+}
+
 function deleteSujet($idSujet) {
     $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=utf8', 'root', '');
     $req = $bdd->prepare('DELETE FROM post WHERE sujet_id = :idsujet');
@@ -62,4 +68,3 @@ function getCategories() {
     $res = $bdd->query('SELECT * FROM categorie');
     return $res;
 }
-

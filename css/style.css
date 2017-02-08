@@ -137,7 +137,10 @@ img.btn_close {
 /** BOUTON FORMULAIRE REPONSE CKEDITOR **/
 
 .btn-sujet {
-    float: right;
+    float: left;
+}
+.form-categorie {
+  float: right;
 }
 
 .btn-reponse {

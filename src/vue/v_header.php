@@ -39,7 +39,7 @@
                             <a href="#?w=500" rel="inscription" class="poplight">
                                 <button type="submit" class="btn btn-warning">Pas encore inscrit ?</button>
                             </a>
-                            <?php } 
+                            <?php }
                             else {  ?>
                             <button type="submit" class="btn btn-success">Bonjour, <?php echo $_SESSION['pseudo']?> !</button>
                             <!-- sinon afiche seulement le bouton de connexion -->
@@ -58,7 +58,7 @@
             <form method='post' action='login'>
                 <label>Pseudo :</label>
                 <br />
-                <input type="text" id="pseudo" name="pseudo" class="connexion-pseudo" />
+                <input type="text" id="pseudo" name="pseudo" class="connexion-pseudo"/>
                 <br />
                 <label>Mot de passe :</label>
                 <br />
@@ -84,15 +84,15 @@
             <form method='post' action='inscription'>
                 <label>Pseudo :</label>
                 <br />
-                <input type="text" id="pseudo" name="pseudo" class="inscription-pseudo" />
+                <input type="text" id="pseudo" name="pseudo" pattern=".{6,}" required class="inscription-pseudo" title="Le pseudo doit comporter minimum 6 caractères" />
                 <br />
                 <label>Mot de passe :</label>
                 <br />
-                <input type="password" id="mdp" name="mdp" class="inscription-mdp" />
+                <input type="text" id="mdp" name="mdp" class="inscription-mdp"pattern=".{6,}" required title="Le mot de passe doit comporter minimum 6 caractères"/>
                 <br />
                 <label>Mail :</label>
                 <br />
-                <input type="text" id="mail" name="mail"class="inscription-mail" />
+                <input type="text" id="mail" name="mail" class="inscription-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Saisissez une adresse email valide" required/>
                 <div class="btn-popup">
                     <hr>
                     <button class="btn btn-success btn-connecter"name="inscription"  id="btn-connecter">S'inscrire</button>
