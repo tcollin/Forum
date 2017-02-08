@@ -53,10 +53,10 @@
                                 <label>Souhaitez-vous vraiment supprimer ce sujet ?</label>
                                 <div class="btn-popup">
                                     <a href="/Forum/" class="info poplight">
-                                        <button class="btn btn-success btn-annuler" id="btn-annuler">Oui</button>
+                                        <button class="btn btn-success btn-annuler" id="btn-annuler">Non</button>
                                     </a>
                                     <a href="delete/<?php echo $sujet['sujet_id']?>">
-                                        <button class="btn btn-danger btn-confirmer" id="btn-confirmer">Non</button>
+                                        <button class="btn btn-danger btn-confirmer" id="btn-confirmer">Oui</button>
                                     </a>
                                 </div>
                             </div>
@@ -102,7 +102,7 @@
     <br />
     <form method="post" class="form-sujet" id="form-sujet" action="sujet">
         <label>Titre du sujet :</label>
-        <input type=text name="titre-sujet" class="titre-sujet" />
+        <input type=text name="titre-sujet" class="titre-sujet" required />
         <label>Catégorie :</label>
         <select name="id-categorie">
             <?php
@@ -118,7 +118,6 @@
         <script>
             CKEDITOR.replace('editor1');
         </script>
-        <button class="btn btn-success btn-annuler" id="btn-annuler" onclick="cacherFormSujet();">Annuler</button>
         <button class="btn btn-success btn-envoyer" id="btn-envoyer" onclick="cacherFormSujet();">Créer</button>
     </form>
 </div>
