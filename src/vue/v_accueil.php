@@ -99,7 +99,7 @@
       </form>
     <?php } ?>
 
-
+    <br />
     <form method="post" class="form-sujet" id="form-sujet" action="sujet">
         <label>Titre du sujet :</label>
         <input type=text name="titre-sujet" class="titre-sujet" />
